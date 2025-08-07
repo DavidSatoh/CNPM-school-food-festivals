@@ -1,4 +1,2 @@
 # CNPM-school-food-festivals
-## 📊 Sơ đồ hệ thống
-
-![Sơ đồ hệ thống](./diagrams/sodo.drawio.svg)
+![Sơ đồ hệ thống](diagrams/sodo.png)
