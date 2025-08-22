@@ -11,7 +11,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask("School Food Festival")
     Swagger(app)
     # Đăng ký blueprint trước
     app.register_blueprint(todo_bp)
@@ -22,7 +22,7 @@ def create_app():
     swaggerui_blueprint = get_swaggerui_blueprint(
         SWAGGER_URL,
         API_URL,
-        config={'app_name': "Todo API"}
+        config={'app_name': "School Food Festival"}
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
