@@ -6,7 +6,7 @@ from .infrastructure.databases import init_db
 from .app_logging import setup_logging
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask("School Food Festival")
     app.config.from_object(Config)
 
     setup_logging(app)
