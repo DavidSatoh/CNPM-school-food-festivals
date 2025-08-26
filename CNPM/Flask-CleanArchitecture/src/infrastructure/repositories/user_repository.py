@@ -1,25 +1,12 @@
-from domain.models.itodo_repository import ITodoRepository
-from domain.models.todo import Todo
-from typing import List, Optional
-from dotenv import load_dotenv
-import os
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
-from config import Config
-from sqlalchemy import Column, Integer, String, DateTime,Boolean
-from infrastructure.databases import Base
+from domain.models.user import UserModel
+from infrastructure.databases.mssql import session
 
-load_dotenv()
+class UserRepository:
+    def get_by_username(self, user_name):
+        return session.query(UserModel).filter_by(user_name=user_name).first()
 
-class UserModel(Base):
-    __tablename__ = 'flask_user'
-    __table_args__ = {'extend_existing': True}  # Thêm dòng này
-
-    id = Column(Integer, primary_key=True)
-    user_name = Column(String(18), nullable=False)
-    password = Column(String(18), nullable=False)
-    description = Column(String(255), nullable=True)
-    status = Column(Boolean, nullable=False)
-    created_at = Column(DateTime)
-    updated_at = Column(DateTime) 
-    
+    def create_user(self, user_name, password, role='user'):
+        user = UserModel(user_name=user_name, password=password, role=role)
+        session.add(user)
+        session.commit()
+        return user
