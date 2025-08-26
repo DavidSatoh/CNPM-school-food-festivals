@@ -19,3 +19,12 @@ class EventRepository:
         self.events.append(event)
         self.counter += 1
         return event
+    
+    def get_all(self):
+        return self.events
+
+    def get_by_id(self, event_id):
+        for event in self.events:
+            if event.id == event_id:
+                return event
+        return None
