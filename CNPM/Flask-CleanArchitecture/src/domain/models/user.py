@@ -1,12 +1,9 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean
-from infrastructure.databases.base import Base
+from sqlalchemy import Column, Integer, String
+from infrastructure.databases.mssql import Base
 
-class User:
-    
-    def __innit__(self, user_name: str, password: str, description: str = None, status: bool = True):
-        self.user_name = user_name
-        self.password = password
-        self.description = description
-        self.status = status
-        self.created_at = None
-        self.updated_at = None
+class UserModel(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    user_name = Column(String(50), unique=True, nullable=False)
+    password = Column(String(255), nullable=False)
+    role = Column(String(20), default='user')  
