@@ -57,8 +57,6 @@ Hệ thống có **5 tác nhân** chính:
    *(Ghi chú: Có thể gộp Admin vào Ban tổ chức nếu tổ chức nhỏ.)*
 
 ### Code PlantUML (actor diagram)
-<details>
-## Code PlantUML (actor diagram)
 
 <details>
 <summary>Code PlantUML</summary>
