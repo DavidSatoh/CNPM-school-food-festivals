@@ -57,32 +57,7 @@ Hệ thống có **5 tác nhân** chính:
    *(Ghi chú: Có thể gộp Admin vào Ban tổ chức nếu tổ chức nhỏ.)*
 
 ### Code PlantUML (actor diagram)
-@startuml "Biểu đồ tác nhân"
-
-actor Guest
-actor "Học sinh tham gia" as Student
-actor "Nhóm học sinh" as Team
-actor "Giáo viên/Nhân viên" as Staff
-actor "Ban tổ chức" as Org
-actor Admin
-
-' Kế thừa (nếu có quan hệ chung)
-Guest <|-- Student
-Student <|-- Team
-Org <|-- Admin
-
-rectangle "Hệ thống lễ hội ẩm thực" as System {
-}
-
-Guest -- System : access
-Student -- System : participate
-Team -- System : manage booth
-Staff -- System : evaluate
-Org -- System : manage event
-Admin -- System : system config
-
-@enduml
-
+//www.plantuml.com/plantuml/png/PP0_JlD04CNxFSKepVTHHFI88j042GaAkC2msQnNyew3TpOI0agKYeA2WXAwG8NI9GM5J-ARC5d_aImgpyxxpPjvdWJ6agFF5MekIfX64xYjHsVrxbb3S9G1P-Z1EXm11hZYE3FKOnTPjV6GzN1YhWtw3fYwwhs0fQi-wL3W3shgrWldymuyHGAkTw-WnMsj4t1PsbO-cNb7Ils3ythx0op85y9_aaS4NMtWDiguT5So7iaUg1G6ZX_6u_xavjiqcnl5Fxqw-z9eHhAvIVbNQSyBMSZhtHD8_UQWtgvzwd_h9iDTOEFXNZsgTgVOjSqZGArD2DtcWRJ0afrs2sIZziSCH8-4ri1DKN2cqcyQo6Q9UPJ15E3ldEZxl2dKG0vDeGkQEwicXcRHvxy0
 ## Các chức năng chính
 
 ### Guest
