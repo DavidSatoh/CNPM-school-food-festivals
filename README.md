@@ -138,6 +138,120 @@ Admin -- System : system config
 * **Quản lý danh mục** (tiêu chí chấm điểm mặc định, danh mục dụng cụ/nguyên liệu tham khảo).
 * **Cấu hình hệ thống** (logo, tên sự kiện, email server, sao lưu/khôi phục dữ liệu).
  
-![Biểu đồ Use Case tổng quan](https://www.plantuml.com/plantuml/png/bLR1Zjn44BtxAqfxI4uZVe13TcPd9qXX2JC9Ga8SEkqUTyjsjzTk3wmW1uGG1uH4X3WWX9GXuX040XIup0Xny8h_y9_GNPvjQXtFCfd3RlkvNtNLg-egtwaiAssTPr6LAbsmakLGLuApIi174S2OyJGfJQtZYSbC2UE7YpVEfej5z3WY36tiyFPxAf5saLwCirfuIYQM5go1qkCGgr9mguoE8iQjspwhHMLtwuMjOw6ldXu8beSNRBdShTygaztgECwLiuCMuFMFHwDWeFk_0z6EO-7J5SbxmNII2JYwssu_1olRxHETGDPkFmEt_bP1ktcU8_uxzyYN72wV_FDRk_rU9qSkyWZSpvf4M2bALABx4SiJHtlEGLz-gfCkq2DW5Ho7tVWBuX-zA_o1pHzkjrKQAdSqfCgvfv7tZX8VJ5T2s_tic6a9LRFc4XB5DCZcgKu2UMoCbTL1PslPlCW3qKkuXtVv5KQdPRlvfK32FPCeVUFcjFaBRFDKGIfDktdMHJSNYQgiA0FpSVI_cjx5j5HAIx2IvJvcj3NUfp1rW19s1KDz69R8rSSNN0wcPi6bYEjC39F7pSzQ0lU5f5_AZR42SpDCVRls8a66JeSCyMRji_H3vy2RJBD4t2_DKcM2I1Y4t2_YcKyro20bsfi41GVLen7GvD4eXYEWnE3t7je3AGp4pPyA2ea6d9DVAxZbBcAprhx4ctMG_rI8-17ZQJIOjxJT_6tXtFi17xfr0SxYcjoDETEfqiaXWitSiGPMglb9ltRcCz2jqTJ9i6x1tNxyqnNBQcRtAJ1hNXJWLEFIz9apjH8tn_p8kydz7zjklz69b-zPyL_4eZ2bhGw9UCmqsW2EQEVvKAGdzOMx4zPtohLsVw_gfUjxHL6QbPYBSzyAgrSf4zU-IQNSJEtVpOv86oSjCQBCjIAvzNAPBEeyP-N5N5HrTfXkE6oGUpgargJT_5Y3nCuWoHJgJhkehCWdHYzLScEyj9EIW8yvDxKUala-rkovJzKdb34tcRWMrcsOEHb_lJAU0EycYmSPFa3gFLQu-nX6xqaLnqA_Fu89GXCAdI1qGg4fGbCAdKRkyDlEew9GNa6SzAjs-vs2XyxvYOjWD_578p8H2HJc7CLmX16e6rBXCJJ-yEdWmFvG8AzelwTuwEG4xFNco7j2pyJz0ILb7Z3QtYWOcbQ47qWExVMJ05zh5W6bNG2_a1pMlwGTtBk00QPtguFwjoJ2Eu0lQ447j5Ui50ybUKVekCwpVm40)
+### Biểu đồ Use Case chi tiết
 
+<details>
+  
+<summary>Code PlantUML</summary>
 
+```plantuml
+@startuml
+@startuml
+skinparam usecase {
+  BackgroundColor BUSINESS
+}
+
+skinparam note {
+  BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor Guest
+actor Student
+actor Team
+actor Staff
+actor Org
+actor Admin
+
+Guest <|-- Student
+Student <|-- Team
+Org <|-- Admin
+
+rectangle "Hệ thống lễ hội ẩm thực học đường" {
+
+    together {
+        rectangle "Chức năng Guest" as A {
+            usecase "Xem thông tin sự kiện" as ViewEvent
+            usecase "Xem danh sách gian hàng" as ViewBooths
+            usecase "Xem thông tin nhóm" as ViewTeams
+            usecase "Đăng nhập" as Login
+            usecase "Đăng ký tài khoản" as Register
+        }
+
+        rectangle "Chức năng Học sinh tham gia" as B {
+            usecase "Đăng ký tham gia" as StudentRegister
+            usecase "Xem lịch sự kiện" as ViewSchedule
+            usecase "Bình chọn gian hàng" as VoteBooth
+            usecase "Quản lý thông tin cá nhân" as ManageProfile
+        }
+    }
+
+    rectangle "Chức năng Nhóm học sinh" as C {
+        usecase "Đăng ký gian hàng" as RegisterBooth
+        usecase "Quản lý gian hàng" as ManageBooth
+        usecase "Theo dõi phản hồi & đánh giá" as ViewFeedback
+        usecase "Xem kết quả xếp hạng" as ViewRanking
+    }
+
+    rectangle "Chức năng Giáo viên/Nhân viên" as D {
+        usecase "Đánh giá gian hàng" as EvaluateBooth
+        usecase "Góp ý cho gian hàng" as GiveFeedback
+        usecase "Xem báo cáo tổng hợp" as ViewReports
+    }
+
+    rectangle "Chức năng Ban tổ chức" as E {
+        usecase "Duyệt đơn đăng ký" as ApproveRequests
+        usecase "Quản lý gian hàng" as OrgManageBooths
+        usecase "Quản lý sự kiện" as ManageEvent
+        usecase "Tổng hợp kết quả & xếp hạng" as SummaryResults
+    }
+
+    rectangle "Chức năng Admin" as F {
+        usecase "Cấu hình hệ thống" as SystemConfig
+        usecase "Quản lý tài khoản" as ManageAccounts
+        usecase "Phân quyền" as ManageRoles
+    }
+
+    ' Giữ khoảng cách giữa các khối
+    A -[hidden]- C
+    C -[hidden]- D
+    D -[hidden]- E
+    E -[hidden]- F
+}
+
+' Mapping Actor với Use Case
+Guest -- ViewEvent
+Guest -- ViewBooths
+Guest -- ViewTeams
+Guest -- Login
+Guest -- Register
+
+Student -- StudentRegister
+Student -- ViewSchedule
+Student -- VoteBooth
+Student -- ManageProfile
+
+Team -- RegisterBooth
+Team -- ManageBooth
+Team -- ViewFeedback
+Team -- ViewRanking
+
+Staff -- EvaluateBooth
+Staff -- GiveFeedback
+Staff -- ViewReports
+
+Org -- ApproveRequests
+Org -- OrgManageBooths
+Org -- ManageEvent
+Org -- SummaryResults
+
+Admin -- SystemConfig
+Admin -- ManageAccounts
+Admin -- ManageRoles
+@enduml
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/bLR1Zjn44BtxAqfxI4uZVe13TcPd9qXX2JC9Ga8SEkqUTyjsjzTk3wmW1uGG1uH4X3WWX9GXuX040XIup0Xny8h_y9_GNPvjQXtFCfd3RlkvNtNLg-egtwaiAssTPr6LAbsmakLGLuApIi174S2OyJGfJQtZYSbC2UE7YpVEfej5z3WY36tiyFPxAf5saLwCirfuIYQM5go1qkCGgr9mguoE8iQjspwhHMLtwuMjOw6ldXu8beSNRBdShTygaztgECwLiuCMuFMFHwDWeFk_0z6EO-7J5SbxmNII2JYwssu_1olRxHETGDPkFmEt_bP1ktcU8_uxzyYN72wV_FDRk_rU9qSkyWZSpvf4M2bALABx4SiJHtlEGLz-gfCkq2DW5Ho7tVWBuX-zA_o1pHzkjrKQAdSqfCgvfv7tZX8VJ5T2s_tic6a9LRFc4XB5DCZcgKu2UMoCbTL1PslPlCW3qKkuXtVv5KQdPRlvfK32FPCeVUFcjFaBRFDKGIfDktdMHJSNYQgiA0FpSVI_cjx5j5HAIx2IvJvcj3NUfp1rW19s1KDz69R8rSSNN0wcPi6bYEjC39F7pSzQ0lU5f5_AZR42SpDCVRls8a66JeSCyMRji_H3vy2RJBD4t2_DKcM2I1Y4t2_YcKyro20bsfi41GVLen7GvD4eXYEWnE3t7je3AGp4pPyA2ea6d9DVAxZbBcAprhx4ctMG_rI8-17ZQJIOjxJT_6tXtFi17xfr0SxYcjoDETEfqiaXWitSiGPMglb9ltRcCz2jqTJ9i6x1tNxyqnNBQcRtAJ1hNXJWLEFIz9apjH8tn_p8kydz7zjklz69b-zPyL_4eZ2bhGw9UCmqsW2EQEVvKAGdzOMx4zPtohLsVw_gfUjxHL6QbPYBSzyAgrSf4zU-IQNSJEtVpOv86oSjCQBCjIAvzNAPBEeyP-N5N5HrTfXkE6oGUpgargJT_5Y3nCuWoHJgJhkehCWdHYzLScEyj9EIW8yvDxKUala-rkovJzKdb34tcRWMrcsOEHb_lJAU0EycYmSPFa3gFLQu-nX6xqaLnqA_Fu89GXCAdI1qGg4fGbCAdKRkyDlEew9GNa6SzAjs-vs2XyxvYOjWD_578p8H2HJc7CLmX16e6rBXCJJ-yEdWmFvG8AzelwTuwEG4xFNco7j2pyJz0ILb7Z3QtYWOcbQ47qWExVMJ05zh5W6bNG2_a1pMlwGTtBk00QPtguFwjoJ2Eu0lQ447j5Ui50ybUKVekCwpVm40)
