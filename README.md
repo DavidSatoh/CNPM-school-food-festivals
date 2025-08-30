@@ -298,29 +298,42 @@ Guest -- Register
 </details> 
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VP0zJlGm48PxdsAKVk-mogUF7sb5GG3HMibWMt76Atko224gX2XeeAIZeOEEQYD4aRs8Ru8ILXQBO4i_UX_FEpCDB3stZHMXDZINNZRG1YnbGBWK002vB6lbNKlLFsUTX_ous3_uNnJYIdnpoF5VmimepKLzaTiM1ydY6GCxy0E7odWisJWIGfRiFEos65Y8WKfI5Y7RYzqji8xT0wdiQqZgc9rY0wpxDrB0Xg2AtLsfOH6xvmnaW1E3vmNwXIbngwUC9D3z4wcavSwntYhPsDs0ZjsZIT8E1ZOBQJUze_wbWTh4vKSp9WkKllpnz-f-TKqAICVbwtnCpPmoz6kexj_7n24g4nZzSDRnRZ2PRAoSO5eeeOswYQwhfVUwH7gcYLEagcti9m00)
+
 #Chức năng Student
 <details>
   
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
-actor "Học sinh tham gia" as Student
+@startuml "Biểu đồ Use Case chức năng Student"
 
-rectangle "Chức năng Student" {
-  usecase "Tham gia lễ hội" as UC1
-  usecase "Xem lịch trình" as UC2
-  usecase "Đặt suất tham gia" as UC3
+skinparam usecase {
+    BackgroundColor BUSINESS
 }
 
-Student -- UC1
-Student -- UC2
-Student -- UC3
+skinparam note {
+    BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor "Học sinh tham gia" as Student
+
+rectangle "Hệ thống" {
+    usecase "Tham gia lễ hội" as JoinFestival
+    usecase "Xem lịch trình" as ViewSchedule
+    usecase "Đặt suất tham gia" as BookSlot
+}
+
+Student -- JoinFestival
+Student -- ViewSchedule
+Student -- BookSlot
+
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/LSyn2i8m60NWFQTuPEzWlK2XYxiAhY4DJQ6DaFoPn4cSH73r00w2kz2EzYAvYR5KQCS77-z_V-P8MF9DpOIalGLVXUuguIgZGLeqA2l18HpMv0jbY36h90bJrWeyrw5xIfZ-PCe_u3Wmm3ibXOjaCtQW3jqPqT-heMwRBwPifvgVk4WDif-NqIDAfwY_XVPDS3wq3vgjYtB9ZeoD6v0amu5PJ6Sn-aoP8Zx-1G00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TO-nIlOm58RtNCMX-tSF7_tvHKLSek8QqcCRcfuZoOaYuYWE8kZe1RYv2rz7lP7UYMcfr0vcF3pF-xxPHZ51KkTLR1rTcc0wI16jYGYt2l8hZMthm8cgV-mvG7cg3ux_Qwtkr2-7MFuIZbpTY6vlIfzmb3nU20X36EzGkO1M79DInah6Y_sXVx8G7JKWJOwkdId0HD2IAYHHQXGCrHudzY5JG_z2TJ7t_ymlJcOR_D3VGuPUtHHqo8xsC8gxCdvjd6CtmeysLuVFTsec_ipXjRODLidZclzw7dOV0Z4DkpTPhosPM-rPnX_Fos6pMNSlztN7SbzYjaXLwlmt)
 
 #Chức năng Team học sinh
 <details>
@@ -328,25 +341,37 @@ Student -- UC3
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
-actor "Nhóm học sinh" as Team
+@startuml "Biểu đồ Use Case chức năng Team"
 
-rectangle "Chức năng Team" {
-  usecase "Quản lý gian hàng" as UC1
-  usecase "Quản lý chi phí" as UC2
-  usecase "Quản lý doanh thu" as UC3
-  usecase "Xem phản hồi khách" as UC4
+skinparam usecase {
+    BackgroundColor BUSINESS
 }
 
-Team -- UC1
-Team -- UC2
-Team -- UC3
-Team -- UC4
+skinparam note {
+    BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor "Nhóm học sinh" as Team
+
+rectangle "Hệ thống" {
+    usecase "Quản lý gian hàng" as ManageBooth
+    usecase "Quản lý chi phí" as ManageCost
+    usecase "Quản lý doanh thu" as ManageRevenue
+    usecase "Xem phản hồi khách" as ViewFeedback
+}
+
+Team -- ManageBooth
+Team -- ManageCost
+Team -- ManageRevenue
+Team -- ViewFeedback
+
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TSunIWGn60NW_Z_5O_ejtDq3B6ml20gsFzcGFvZyAvEa4YjhAo-WM5bOsIbMyI9x4sCOS9hf7hoFnzkbp6CkCH2RV1mnd4lzY93JrwD1yYe3EE7ISYGQhSciBbWC-mRU3FJdGLrl1zmHK98rd5f_KKwVhufGl-4yAwG-g-jJL_kp1MZ4urRg-yJM2-nmP1LaAPFRpDsrZMsZs_RmoUD6wekHYMxfdkZlBLQhVkG_hsTvCyjRsbazb1X-0G00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TP2nJiCm48PtFyKfUz-XIWK22If1A68zdCEsafohn0OXnDI1YQ7g2u2O69ZOY9ZI5ycRO4TKQePwyF3h_-u-Uzeuh9slIaXIqxSh3zjrtsvWqH3CC5nIz-sd1DwkMC4LOPK8qHI6brXZ1RuX6LjF0i99KHQgjfxpcIrj3UaYEvqVPPbutcVOkaF0cL7QPSLZMdgAK4bt3fo5EkQGcvgaCvQ5GEb2FPdhxhk2OFWgeJ6i4y1ca1GYLf5LIP2SzEqBkD1Qiqh-D-_4amlV_tmmbDqlA8CCkdjZDSmvHqP5gRLE7qIaDh3KtTSUCBEDEzZFBR8EBduFkAHxOazZveQgC7ZWWlZ6GA6xTwa7xDhGmp5HVekoYByK7moJoKXud4MdSRJRkal7GyMKEFTLAVu0)
 
 #Chức năng Staff
 <details>
@@ -354,25 +379,37 @@ Team -- UC4
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
-actor "Giáo viên/Nhân viên" as Staff
+@startuml "Biểu đồ Use Case chức năng Staff"
 
-rectangle "Chức năng Staff" {
-  usecase "Giám sát gian hàng" as UC1
-  usecase "Đánh giá theo tiêu chí" as UC2
-  usecase "Chấm điểm" as UC3
-  usecase "Phản hồi ban tổ chức" as UC4
+skinparam usecase {
+    BackgroundColor BUSINESS
 }
 
-Staff -- UC1
-Staff -- UC2
-Staff -- UC3
-Staff -- UC4
+skinparam note {
+    BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor "Giáo viên/Nhân viên" as Staff
+
+rectangle "Hệ thống" {
+    usecase "Giám sát gian hàng" as MonitorBooth
+    usecase "Đánh giá theo tiêu chí" as EvaluateCriteria
+    usecase "Chấm điểm" as Score
+    usecase "Phản hồi ban tổ chức" as FeedbackOrg
+}
+
+Staff -- MonitorBooth
+Staff -- EvaluateCriteria
+Staff -- Score
+Staff -- FeedbackOrg
+
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/JP0nIWGn58RxTugVwHTnTm-mi8MT2E81OimcWPqtC7bZ8rPx0KNi7SL2mGiuPUOYSvCDcIdIvISV___nTa5KArrz9AMbQL5T-TWtUFJnbo-kNVpa-Lr11ToAEXo8MgD5iJqQL7it3JyQF9xOpjyLdWZeWj4gcBckHeYzm7h5SF63RIwxsr-MuFWIUtQmYOSuqq3IR0Vjuj-2hqiy3Vz_rnXV_JISweNObCHD8huOIV3DupvDopIyGsVXXT_ICr6sncgLXOgmBiEc35lQ6Nv8Dpi3)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TP7FIiD04CRl-nH3xiLNA0dr3sWLGXzWcsmtIvDPsSmMH3pruDKYtgtYGS4NCCVqHV8cJX891Z67aEpExvjllfcM91tv8eSWD4srzN3ODTKZB4e5aUHNaZNLUm9usAA6cEHg5GXHhWrUIoSByALAsh9R0Vo4CbbhPpscaSsjWt0HdyrdSIpkVZDewJ_WtEYCulLDc7lLGhbQ4P05rvv3QfnAo5WKGYR4vS69gVSMDgR-mADvLhzW_ns0B7kpGhI8H9qh24wRwXw81zgX3de7mm2TL05blIVGHY9azJFgJkZ2ek5keRMKZPd3Gxt733IZhAii47Vtd5dzsP6pZSoz91KvGyePEQQZhFbwApZmDlYYzvnOfyPLLrprodPuAmQM4e6QwkbdBHrph5Iwv1mldMuZwyQ6oMHaUpZzQscuwNeFloDPCLMO-Y8Ntm00)
 
 #Chức năng Org
 <details>
@@ -380,25 +417,37 @@ Staff -- UC4
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
-actor "Ban tổ chức" as Org
+@startuml "Biểu đồ Use Case chức năng Ban tổ chức"
 
-rectangle "Chức năng Ban tổ chức" {
-  usecase "Xét duyệt gian hàng" as UC1
-  usecase "Phân công gian hàng" as UC2
-  usecase "Theo dõi sự kiện" as UC3
-  usecase "Xử lý sự cố" as UC4
+skinparam usecase {
+    BackgroundColor BUSINESS
 }
 
-Org -- UC1
-Org -- UC2
-Org -- UC3
-Org -- UC4
+skinparam note {
+    BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor "Ban tổ chức" as Org
+
+rectangle "Hệ thống" {
+    usecase "Xét duyệt gian hàng" as ApproveBooth
+    usecase "Phân công gian hàng" as AssignBooth
+    usecase "Theo dõi sự kiện" as MonitorEvent
+    usecase "Xử lý sự cố" as HandleIssue
+}
+
+Org -- ApproveBooth
+Org -- AssignBooth
+Org -- MonitorEvent
+Org -- HandleIssue
+
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PT2nIiOm50NW_Jx5eVi_-BSFKEm3wA3W6jAG5Eij9EaWukJWxE0kRXqS19s2KtoHl8cX5blfTY1VJd9lxRomVhpfIKW_M1IdWk5JU8OqAKooW70uivh8Aka5wrwXQEOZyFS3Q-mkt14mEYM5o_GgJXxjU9l2euVkiZNnXVLSUzcSREcvYQyC6JzOx-LnAo-C6j36pmukXNTSTxcT5rZ-Ups5D_JnwzV959uMLT4zKHuBXyFyZRzuN6EvnefgnMtUqWy0)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TP2zQiCm58LtFSN5UzuXTGWaq9-26-WgP5KMLgw2VWAXTChGEPJkfLk63eLs4fsS5z6RL4vSYDDsyN1yldlEqT0wQfoVAyXo6SFQmsuJmnFCB8SHJHzMnR1bWBir2iWfWelXkLCpGcmjSK4DdOEtdBN0FG60v6IrCDfZET9A6yXdnVHoN1JauPX1xVu3pgMeN56lSkLv2ob-vy1fCAqEfJISEQcH4CfSicUdrO1Qk3A2aDP8KIWEsII6Ht3f_mP5rkN-rCvkcsswwrV9uq18Yb0rBoZsXyuM2wENFDVQLNtgkcfU4LZpWU8NPAqK-0TpKt4DPVCfmSRm3hLCaRX7BZJAj6QyvEXEsiNm1ghvEY0iJTW34ugbubDh3u-K1iDWqAlRQRqsdNISrcczWsJ8iVHpHRu1)
 
 #Chức năng Admin
 <details>
@@ -407,22 +456,32 @@ Org -- UC4
 
 ```plantuml
 @startuml
-actor Admin
-
-rectangle "Chức năng Admin" {
-  usecase "Quản lý tài khoản" as UC1
-  usecase "Phân quyền & vai trò" as UC2
-  usecase "Cấu hình hệ thống" as UC3
-  usecase "Sao lưu & khôi phục" as UC4
+skinparam usecase {
+    BackgroundColor BUSINESS
 }
 
-Admin -- UC1
-Admin -- UC2
-Admin -- UC3
-Admin -- UC4
+skinparam note {
+    BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor Admin
+
+rectangle "Hệ thống" {
+    usecase "Quản lý tài khoản" as ManageAccount
+    usecase "Phân quyền & vai trò" as ManageRoles
+    usecase "Cấu hình hệ thống" as ConfigSystem
+    usecase "Sao lưu & khôi phục" as BackupRestore
+}
+
+Admin -- ManageAccount
+Admin -- ManageRoles
+Admin -- ConfigSystem
+Admin -- BackupRestore
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/JT0_IWD150Rm_ftYOujqAKnoWCXUG14FC4o6dI6Jjpf_114BiR3s1gAa42n4hB9OZNYFkOcpkiKq3xxtViN7M_iWN8WxIqA6tk5uipDCv9GCWZkhqBGw3wyI_7tFtV-vmGq1qIifV06dCHzU63Pz8QGdWwtknqK3uN7U7jNqHATdncMypiCTOuOhOH1S-fZiehPjFkmZT7fZZLBX0Q7CH-uckwpjcUXXVzuZPjZgz6bmKUnUJdH5jqH_pJ6VZvNgiAZ3iWuhMYlUZA_v1G00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TP0zIWGn583xESLZYkts3lk3eA2YEtY0aCbEmcJUMvCNOH4BAsjl8Cfs5Y9MkrW5lCVSn9aHXarXkdpmvNrvCy_2SMXivck36-540y4hARo2-mowin2ohXm5B9TaoS7YfZYxF2cAx24xSf3uF-7SL9gBUhkmGVMILMi69d0zXz8u9TaGPfcGJ0xcPMEwIqy5LbP1VjeUde1rUtZ6AlyRCZRcrw7Tlo7O-0qSNmpKcdgGW_1m8L1KQYub1UHKkzBn5U4sRDl38y84xeG1Tl7po5kHLJwrbkr-5q37TzIWawhEMXAkJLLiFQicrGf1O7y-0aowlFXbODDfEpbO_RR2PgKyanlMC_mVfjEqViH9t0YJsIDDtvufB4DZVm40)
 
