@@ -305,7 +305,8 @@ rectangle "Chức năng Student" {
 Student -- UC1
 Student -- UC2
 Student -- UC3
-@enduml```
+@enduml
+```
 </details> 
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/LSyn2i8m60NWFQTuPEzWlK2XYxiAhY4DJQ6DaFoPn4cSH73r00w2kz2EzYAvYR5KQCS77-z_V-P8MF9DpOIalGLVXUuguIgZGLeqA2l18HpMv0jbY36h90bJrWeyrw5xIfZ-PCe_u3Wmm3ibXOjaCtQW3jqPqT-heMwRBwPifvgVk4WDif-NqIDAfwY_XVPDS3wq3vgjYtB9ZeoD6v0amu5PJ6Sn-aoP8Zx-1G00)
@@ -360,7 +361,8 @@ Staff -- UC1
 Staff -- UC2
 Staff -- UC3
 Staff -- UC4
-@enduml```
+@enduml
+```
 </details> 
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/JP0nIWGn58RxTugVwHTnTm-mi8MT2E81OimcWPqtC7bZ8rPx0KNi7SL2mGiuPUOYSvCDcIdIvISV___nTa5KArrz9AMbQL5T-TWtUFJnbo-kNVpa-Lr11ToAEXo8MgD5iJqQL7it3JyQF9xOpjyLdWZeWj4gcBckHeYzm7h5SF63RIwxsr-MuFWIUtQmYOSuqq3IR0Vjuj-2hqiy3Vz_rnXV_JISweNObCHD8huOIV3DupvDopIyGsVXXT_ICr6sncgLXOgmBiEc35lQ6Nv8Dpi3)
