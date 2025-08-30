@@ -263,31 +263,42 @@ Admin -- ManageRoles
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
-actor Guest
+@startuml "Biểu đồ Use Case chức năng Guest"
 
-rectangle "Chức năng Guest" {
-  usecase "Xem thông tin dịch vụ" as UC1
-  usecase "Xem thông tin gian hàng" as UC2
-  usecase "Xem thông tin lễ hội" as UC3
-  usecase "Tìm kiếm" as UC4
-  usecase "Đăng nhập" as UC5
-  usecase "Đăng ký" as UC6
+skinparam usecase {
+    BackgroundColor BUSINESS
 }
 
-Guest -- UC1
-Guest -- UC2
-Guest -- UC3
-Guest -- UC4
-Guest -- UC5
-Guest -- UC6
+skinparam note {
+    BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor Guest
+
+rectangle "Hệ thống" {
+    usecase "Xem thông tin dịch vụ" as ViewService
+    usecase "Xem thông tin gian hàng" as ViewBooth
+    usecase "Xem thông tin lễ hội" as ViewFestival
+    usecase "Tìm kiếm" as Search
+    usecase "Đăng nhập" as Login
+    usecase "Đăng ký" as Register
+}
+
+Guest -- ViewService
+Guest -- ViewBooth
+Guest -- ViewFestival
+Guest -- Search
+Guest -- Login
+Guest -- Register
+
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VP2XJiKm58RzUOgJ-IkuTvjUCi4BG89jkgPjjXx8sc48Yg0mM1m6GG8EjOOWkXVfcx2CYWeo-UNxpFytrh7HJMO0njtrYEUJi0vW5DmnaeF0ebNHltEavO7adoxm3X0dApYpQt0b33eLlbRjD64N_HDNU1lzMu7CucLxjbDBpGXLU2MPukDEF4J_Y2hw5vtYKnvVX0-3lOxpZqcwpFNol2qW5UVFcnHK_mHz-4wsXdk0RJ4U3jkE38uvd78eSwXogA4HrArd_m80)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VP0zJlGm48PxdsAKVk-mogUF7sb5GG3HMibWMt76Atko224gX2XeeAIZeOEEQYD4aRs8Ru8ILXQBO4i_UX_FEpCDB3stZHMXDZINNZRG1YnbGBWK002vB6lbNKlLFsUTX_ous3_uNnJYIdnpoF5VmimepKLzaTiM1ydY6GCxy0E7odWisJWIGfRiFEos65Y8WKfI5Y7RYzqji8xT0wdiQqZgc9rY0wpxDrB0Xg2AtLsfOH6xvmnaW1E3vmNwXIbngwUC9D3z4wcavSwntYhPsDs0ZjsZIT8E1ZOBQJUze_wbWTh4vKSp9WkKllpnz-f-TKqAICVbwtnCpPmoz6kexj_7n24g4nZzSDRnRZ2PRAoSO5eeeOswYQwhfVUwH7gcYLEagcti9m00)
 #Chức năng Student
-
 <details>
   
 <summary>Code PlantUML</summary>
@@ -311,8 +322,7 @@ Student -- UC3
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/LSyn2i8m60NWFQTuPEzWlK2XYxiAhY4DJQ6DaFoPn4cSH73r00w2kz2EzYAvYR5KQCS77-z_V-P8MF9DpOIalGLVXUuguIgZGLeqA2l18HpMv0jbY36h90bJrWeyrw5xIfZ-PCe_u3Wmm3ibXOjaCtQW3jqPqT-heMwRBwPifvgVk4WDif-NqIDAfwY_XVPDS3wq3vgjYtB9ZeoD6v0amu5PJ6Sn-aoP8Zx-1G00)
 
-#Chức năng Student
-
+#Chức năng Team học sinh
 <details>
   
 <summary>Code PlantUML</summary>
@@ -339,9 +349,6 @@ Team -- UC4
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TSunIWGn60NW_Z_5O_ejtDq3B6ml20gsFzcGFvZyAvEa4YjhAo-WM5bOsIbMyI9x4sCOS9hf7hoFnzkbp6CkCH2RV1mnd4lzY93JrwD1yYe3EE7ISYGQhSciBbWC-mRU3FJdGLrl1zmHK98rd5f_KKwVhufGl-4yAwG-g-jJL_kp1MZ4urRg-yJM2-nmP1LaAPFRpDsrZMsZs_RmoUD6wekHYMxfdkZlBLQhVkG_hsTvCyjRsbazb1X-0G00)
 
 #Chức năng Staff
-
-
-
 <details>
   
 <summary>Code PlantUML</summary>
@@ -368,8 +375,6 @@ Staff -- UC4
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/JP0nIWGn58RxTugVwHTnTm-mi8MT2E81OimcWPqtC7bZ8rPx0KNi7SL2mGiuPUOYSvCDcIdIvISV___nTa5KArrz9AMbQL5T-TWtUFJnbo-kNVpa-Lr11ToAEXo8MgD5iJqQL7it3JyQF9xOpjyLdWZeWj4gcBckHeYzm7h5SF63RIwxsr-MuFWIUtQmYOSuqq3IR0Vjuj-2hqiy3Vz_rnXV_JISweNObCHD8huOIV3DupvDopIyGsVXXT_ICr6sncgLXOgmBiEc35lQ6Nv8Dpi3)
 
 #Chức năng Org
-
-
 <details>
   
 <summary>Code PlantUML</summary>
@@ -396,7 +401,6 @@ Org -- UC4
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PT2nIiOm50NW_Jx5eVi_-BSFKEm3wA3W6jAG5Eij9EaWukJWxE0kRXqS19s2KtoHl8cX5blfTY1VJd9lxRomVhpfIKW_M1IdWk5JU8OqAKooW70uivh8Aka5wrwXQEOZyFS3Q-mkt14mEYM5o_GgJXxjU9l2euVkiZNnXVLSUzcSREcvYQyC6JzOx-LnAo-C6j36pmukXNTSTxcT5rZ-Ups5D_JnwzV959uMLT4zKHuBXyFyZRzuN6EvnefgnMtUqWy0)
 
 #Chức năng Admin
-
 <details>
   
 <summary>Code PlantUML</summary>
