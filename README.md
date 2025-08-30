@@ -137,5 +137,204 @@ Admin -- System : system config
 * **Quản lý tài khoản & vai trò** (Admin/BTC/Staff/Team/Student/Guest hạn chế).
 * **Quản lý danh mục** (tiêu chí chấm điểm mặc định, danh mục dụng cụ/nguyên liệu tham khảo).
 * **Cấu hình hệ thống** (logo, tên sự kiện, email server, sao lưu/khôi phục dữ liệu).
+@startuml "Biểu đồ Use Case tổng quan"
+
+skinparam usecase {
+  BackgroundColor BUSINESS
+}
+
+skinparam note {
+  BackgroundColor LightSkyBlue
+}
+
+left to right direction
+
+actor Guest
+actor Student
+actor Team
+actor Staff
+actor Org
+actor Admin
+
+Guest <|-- Student
+Student <|-- Team
+Org <|-- Admin
+
+rectangle "Hệ thống lễ hội ẩm thực học đường" {
+
+    together {
+        rectangle "Chức năng Guest" as A {
+            usecase "Xem thông tin sự kiện" as ViewEvent
+            usecase "Xem danh sách gian hàng" as ViewBooths
+            usecase "Xem thông tin nhóm" as ViewTeams
+            usecase "Đăng nhập" as Login
+            usecase "Đăng ký tài khoản" as Register
+        }
+
+        rectangle "Chức năng Học sinh tham gia" as B {
+            usecase "Đăng ký tham gia" as StudentRegister
+            usecase "Xem lịch sự kiện" as ViewSchedule
+            usecase "Bình chọn gian hàng" as VoteBooth
+            usecase "Quản lý thông tin cá nhân" as ManageProfile
+        }
+    }
+
+    rectangle "Chức năng Nhóm học sinh" as C {
+        usecase "Đăng ký gian hàng" as RegisterBooth
+        usecase "Quản lý gian hàng" as ManageBooth
+        usecase "Theo dõi phản hồi & đánh giá" as ViewFeedback
+        usecase "Xem kết quả xếp hạng" as ViewRanking
+    }
+
+    rectangle "Chức năng Giáo viên/Nhân viên" as D {
+        usecase "Đánh giá gian hàng" as EvaluateBooth
+        usecase "Góp ý cho gian hàng" as GiveFeedback
+        usecase "Xem báo cáo tổng hợp" as ViewReports
+    }
+
+    rectangle "Chức năng Ban tổ chức" as E {
+        usecase "Duyệt đơn đăng ký" as ApproveRequests
+        usecase "Quản lý gian hàng" as OrgManageBooths
+        usecase "Quản lý sự kiện" as ManageEvent
+        usecase "Tổng hợp kết quả & xếp hạng" as SummaryResults
+    }
+
+    rectangle "Chức năng Admin" as F {
+        usecase "Cấu hình hệ thống" as SystemConfig
+        usecase "Quản lý tài khoản" as ManageAccounts
+        usecase "Phân quyền" as ManageRoles
+    }
+
+    ' Giữ khoảng cách giữa các khối
+    A -[hidden]- C
+    C -[hidden]- D
+    D -[hidden]- E
+    E -[hidden]- F
+}
+
+' Mapping Actor với Use Case
+Guest -- ViewEvent
+Guest -- ViewBooths
+Guest -- ViewTeams
+Guest -- Login
+Guest -- Register
+
+Student -- StudentRegister
+Student -- ViewSchedule
+Student -- VoteBooth
+Student -- ManageProfile
+
+Team -- RegisterBooth
+Team -- ManageBooth
+Team -- ViewFeedback
+Team -- ViewRanking
+
+Staff -- EvaluateBooth
+Staff -- GiveFeedback
+Staff -- ViewReports
+
+Org -- ApproveRequests
+Org -- OrgManageBooths
+Org -- ManageEvent
+Org -- SummaryResults
+
+Admin -- SystemConfig
+Admin -- ManageAccounts
+Admin -- ManageRoles
+
+@enduml
+@startuml
+actor Guest
+
+rectangle "Chức năng Guest" {
+  usecase "Xem thông tin dịch vụ" as UC1
+  usecase "Xem thông tin gian hàng" as UC2
+  usecase "Xem thông tin lễ hội" as UC3
+  usecase "Tìm kiếm" as UC4
+  usecase "Đăng nhập" as UC5
+  usecase "Đăng ký" as UC6
+}
+
+Guest -- UC1
+Guest -- UC2
+Guest -- UC3
+Guest -- UC4
+Guest -- UC5
+Guest -- UC6
+@enduml
+@startuml
+actor "Học sinh tham gia" as Student
+
+rectangle "Chức năng Student" {
+  usecase "Tham gia lễ hội" as UC1
+  usecase "Xem lịch trình" as UC2
+  usecase "Đặt suất tham gia" as UC3
+}
+
+Student -- UC1
+Student -- UC2
+Student -- UC3
+@enduml
+@startuml
+actor "Nhóm học sinh" as Team
+
+rectangle "Chức năng Team" {
+  usecase "Quản lý gian hàng" as UC1
+  usecase "Quản lý chi phí" as UC2
+  usecase "Quản lý doanh thu" as UC3
+  usecase "Xem phản hồi khách" as UC4
+}
+
+Team -- UC1
+Team -- UC2
+Team -- UC3
+Team -- UC4
+@enduml
+@startuml
+actor "Giáo viên/Nhân viên" as Staff
+
+rectangle "Chức năng Staff" {
+  usecase "Giám sát gian hàng" as UC1
+  usecase "Đánh giá theo tiêu chí" as UC2
+  usecase "Chấm điểm" as UC3
+  usecase "Phản hồi ban tổ chức" as UC4
+}
+
+Staff -- UC1
+Staff -- UC2
+Staff -- UC3
+Staff -- UC4
+@enduml
+@startuml
+actor "Ban tổ chức" as Org
+
+rectangle "Chức năng Ban tổ chức" {
+  usecase "Xét duyệt gian hàng" as UC1
+  usecase "Phân công gian hàng" as UC2
+  usecase "Theo dõi sự kiện" as UC3
+  usecase "Xử lý sự cố" as UC4
+}
+
+Org -- UC1
+Org -- UC2
+Org -- UC3
+Org -- UC4
+@enduml
+@startuml
+actor Admin
+
+rectangle "Chức năng Admin" {
+  usecase "Quản lý tài khoản" as UC1
+  usecase "Phân quyền & vai trò" as UC2
+  usecase "Cấu hình hệ thống" as UC3
+  usecase "Sao lưu & khôi phục" as UC4
+}
+
+Admin -- UC1
+Admin -- UC2
+Admin -- UC3
+Admin -- UC4
+@enduml
+  
 
 
