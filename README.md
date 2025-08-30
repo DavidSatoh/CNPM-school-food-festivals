@@ -57,7 +57,33 @@ Hệ thống có **5 tác nhân** chính:
    *(Ghi chú: Có thể gộp Admin vào Ban tổ chức nếu tổ chức nhỏ.)*
 
 ### Code PlantUML (actor diagram)
-## Biểu đồ UML
+<details>
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml
+actor Guest
+actor "Học sinh tham gia" as Student
+actor "Nhóm học sinh" as Team
+actor "Giáo viên/Nhân viên" as Staff
+actor "Ban tổ chức" as Org
+actor Admin
+
+' Kế thừa (nếu có quan hệ chung)
+Guest <|-- Student
+Student <|-- Team
+Org <|-- Admin
+
+rectangle "Hệ thống lễ hội ẩm thực" as System {
+}
+
+Guest -- System : access
+Student -- System : participate
+Team -- System : manage booth
+Staff -- System : evaluate
+Org -- System : manage event
+Admin -- System : system config
+@enduml
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PP0_JlD04CNxFSKepVTHHFI88j042GaAkC2msQnNyew3TpOI0agKYeA2WXAwG8NI9GM5J-ARC5d_aImgpyxxpPjvdWJ6agFF5MekIfX64xYjHsVrxbb3S9G1P-Z1EXm11hZYE3FKOnTPjV6GzN1YhWtw3fYwwhs0fQi-wL3W3shgrWldymuyHGAkTw-WnMsj4t1PsbO-cNb7Ils3ythx0op85y9_aaS4NMtWDiguT5So7iaUg1G6ZX_6u_xavjiqcnl5Fxqw-z9eHhAvIVbNQSyBMSZhtHD8_UQWtgvzwd_h9iDTOEFXNZsgTgVOjSqZGArD2DtcWRJ0afrs2sIZziSCH8-4ri1DKN2cqcyQo6Q9UPJ15E3ldEZxl2dKG0vDeGkQEwicXcRHvxy0)
 
 ## Các chức năng chính
@@ -107,11 +133,4 @@ Hệ thống có **5 tác nhân** chính:
 * **Quản lý danh mục** (tiêu chí chấm điểm mặc định, danh mục dụng cụ/nguyên liệu tham khảo).
 * **Cấu hình hệ thống** (logo, tên sự kiện, email server, sao lưu/khôi phục dữ liệu).
 
----
-
-## Phụ lục (tuỳ chọn mở rộng)
-
-* **Phi chức năng**: Hiệu năng (P95 < 1s cho trang chính), Bảo mật (JWT/OAuth2, mã hoá mật khẩu), Khả dụng (99.5% trong thời gian sự kiện), Nhật ký – audit.
-* **Quy trình điển hình**: (1) Nhóm đăng ký gian hàng → (2) BTC xét duyệt & phân công → (3) Nhóm cập nhật tiến độ → (4) Sự kiện diễn ra: bình chọn/đánh giá → (5) Tổng hợp báo cáo – xếp hạng.
-* **Ràng buộc dữ liệu**: mỗi tài khoản dùng email/số điện thoại duy nhất; mỗi phiếu bình chọn gắn định danh (tài khoản/OTP/QR) theo cấu hình; quyền xem báo cáo chi tiết thuộc BTC/Admin.
 
