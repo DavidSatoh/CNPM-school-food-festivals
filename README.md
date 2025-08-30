@@ -57,48 +57,31 @@ Hệ thống có **5 tác nhân** chính:
    *(Ghi chú: Có thể gộp Admin vào Ban tổ chức nếu tổ chức nhỏ.)*
 
 ### Code PlantUML (actor diagram)
+@startuml "Biểu đồ tác nhân"
 
-```plantuml
-@startuml
-left to right direction
-actor "Guest" as Guest
+actor Guest
 actor "Học sinh tham gia" as Student
 actor "Nhóm học sinh" as Team
 actor "Giáo viên/Nhân viên" as Staff
 actor "Ban tổ chức" as Org
-actor "Admin" as Admin
+actor Admin
 
-rectangle "Hệ thống Lễ hội Ẩm thực" {
-  usecase "Xem thông tin sự kiện" as UC_ViewEvent
-  usecase "Bình chọn/Tham gia minigame" as UC_Vote
-  usecase "Đăng ký tham gia" as UC_Register
-  usecase "Đăng ký gian hàng" as UC_BoothReg
-  usecase "Xét duyệt & Phân công" as UC_Approve
-  usecase "Quản lý gian hàng" as UC_BoothMgmt
-  usecase "Theo dõi tiến độ" as UC_Progress
-  usecase "Chấm điểm & Phản hồi" as UC_Score
-  usecase "Báo cáo & Xếp hạng" as UC_Report
-  usecase "Quản trị hệ thống" as UC_Admin
+' Kế thừa (nếu có quan hệ chung)
+Guest <|-- Student
+Student <|-- Team
+Org <|-- Admin
+
+rectangle "Hệ thống lễ hội ẩm thực" as System {
 }
 
-Guest --> UC_ViewEvent
-Guest --> UC_Vote
-Student --> UC_ViewEvent
-Student --> UC_Vote
-Student --> UC_Register
-Team --> UC_BoothReg
-Team --> UC_BoothMgmt
-Team --> UC_Progress
-Team --> UC_Vote
-Staff --> UC_Score
-Org --> UC_Approve
-Org --> UC_Progress
-Org --> UC_Report
-Admin --> UC_Admin
-@enduml
-```
+Guest -- System : access
+Student -- System : participate
+Team -- System : manage booth
+Staff -- System : evaluate
+Org -- System : manage event
+Admin -- System : system config
 
-*(Có thể xuất sơ đồ này ra **Biểu đồ tác nhân.svg** khi cần.)*
+@enduml
 
 ## Các chức năng chính
 
