@@ -738,4 +738,359 @@ stop
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/ZP0_Ipin6CVtl8e7Vl1x4UrIxA131qK77SFrI4BJ9p6NL8hd80uEBegpu1-wY6855tiufVHzv9sOkmgMQm-yuOxBa-_dy-NfP9OQwuQIP0E1cXew19fOCH9s3AS4uhD5am4poc6_gwGoq1ECswDKIdL2pWZ9zroOFI5O4ueh60d_Z3cfgAGrlvvV80FaOVQgWOVY4cnyto1ha_oVfZ9b9aqntrcPvAHrw1-IwlSzVlozW05NfQEzMTRwEPJ-gtQz3kvMFQewDXxx3sHW1Vv9iilz8yAn6uVY707POXgAEm5z_ubitRJDnTA3e5U3JVJOREA0-nVazJtLoBt5r5NXDqX-GqtSVQf0bed_e2DYafJqsrYxp4iHqMvTSR1SFI_72DbcH8CniqgJJefzDvJV)
 
+### Luồng xử lí
+Luồng xử lí đăng kí và đăng nhập
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml
+actor "Khách" as guest
+participant "Giao diện" as ui
+participant "Hệ thống" as system
+database "CSDL" as db
+
+== Đăng ký ==
+
+guest -> ui: 1. Truy cập form đăng ký
+activate ui
+
+guest -> ui: 2. Điền thông tin đăng ký\n(họ tên, email, SĐT, mật khẩu)
+ui -> system: 3. Gửi thông tin đăng ký
+activate system
+
+system -> system: 4. Kiểm tra thông tin
+alt Thông tin hợp lệ
+    system -> db: 5. Lưu thông tin tài khoản
+    activate db
+    db --> system: 6. Xác nhận lưu thành công
+    deactivate db
+
+    system -> system: 7. Tạo mã xác thực email
+    system -> guest: 8. Gửi email xác thực
+    system --> ui: 9a. Thông báo đăng ký thành công
+    ui --> guest: 10a. Chuyển đến trang xác thực email
+else Thông tin không hợp lệ
+    system --> ui: 9b. Trả về lỗi
+    ui --> guest: 10b. Hiển thị thông báo lỗi
+end
+deactivate system
+deactivate ui
+
+== Đăng nhập ==
+
+guest -> ui: 11. Truy cập form đăng nhập
+activate ui
+
+guest -> ui: 12. Nhập thông tin tài khoản
+ui -> system: 13. Gửi thông tin đăng nhập
+activate system
+
+system -> db: 14. Kiểm tra thông tin trong CSDL
+activate db
+db --> system: 15. Kết quả xác thực
+deactivate db
+
+alt Tài khoản hợp lệ
+    system --> ui: 16a. Thông báo đăng nhập thành công
+    ui --> guest: 17a. Chuyển đến trang chính
+else Tài khoản không hợp lệ
+    system --> ui: 16b. Trả về lỗi
+    ui --> guest: 17b. Hiển thị thông báo lỗi
+end
+
+deactivate system
+deactivate ui
+@enduml
+```//www.plantuml.com/plantuml/png/ZLH1YzD06BtFhtZqfD0DHjsj5YeBA-p2Bbws1mzUfcbiXYQJsamMUvGzU11Xz-HrIqyA1GLFBU8XnV-HV-8toOPEnyRsb8JvlZVl-zvxEKuK7wiq2XdtL3n6upp8fbxG04ymIFr4iH6T2q-Ck5Hed0eUeo_ovKTPbAHYy_oCJg22V7ah1qL1CacK7x4-Lxp74n-DaykN5yL9lyTOfuFLpUfQ3Z3CVg7JOQou4mSl2BaDrq5td4xWvOlv26_ZSOJLRLMk2OihhdmgjVeUEmHB93z8ufBzf7ebfD7wHZuWYf-Xic-o2J_Y8cpYSdNJRIAYgnI6GRxucZvagT2GvGnjF75mcY_dmWAr-LGpi_9f8ZnrS4wyhYEeCJTW60yLkcjKOZSR8QHbCW1O0_LxRHmwkFZpFJLPgEnE4EauNynaqL5neGRzJGyS63oE7BmccI436bSYl8Uxam4y3Lhs-2QAHQH2Qf54-M8Q8yfcUAynjVe_l7AhLbCXKXlFgZqMDMRNHlszcC-vKwscbqrZO-F_KjPwhUzn7r7hIP1EQEDQgNpnM-h5oy4MfdwO-AO4m_BLLiBYrjCEfQtZYjocoxw8hKIexamKDFIbdw2CWSekN_QPiV4gDxxXSYClfNAZBP6foqpLyf_Ok9IRLqLHdRUiGBZrYR1liq9HUTcjImHznlIc_nRCjA5bPFUG-abNXNSf4TpmakNV8cB6B3kaTOzitvbpxRHUgzPwNf3DPL3wpU2pd-E8rfwMQ-rdkPsUEwQgD0h_0W00)
+
+Luồng xử lí học sinh tham gia lễ hội
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trình tự - Sinh viên tham gia"
+
+actor "Sinh viên" as student
+participant "Giao diện" as ui
+participant "Hệ thống" as system
+database "CSDL" as db
+participant "Ban tổ chức" as org
+
+== Đăng nhập ==
+
+student -> ui: 1. Mở trang đăng nhập
+activate ui
+student -> ui: 2. Nhập tài khoản, mật khẩu
+ui -> system: 3. Gửi thông tin đăng nhập
+activate system
+system -> db: 4. Kiểm tra tài khoản
+activate db
+db --> system: 5. Kết quả xác thực
+deactivate db
+
+alt Tài khoản hợp lệ
+    system --> ui: 6a. Cho phép truy cập
+    ui --> student: 7a. Hiển thị giao diện chính
+else Không hợp lệ
+    system --> ui: 6b. Trả về lỗi
+    ui --> student: 7b. Hiển thị thông báo lỗi
+end
+deactivate system
+deactivate ui
+
+== Đăng ký tham gia lễ hội ==
+
+student -> ui: 8. Chọn đăng ký tham gia
+ui -> system: 9. Gửi yêu cầu tham gia
+activate system
+system -> org: 10. Chuyển yêu cầu xét duyệt
+org -> system: 11. Phản hồi duyệt/không duyệt
+system -> db: 12. Cập nhật trạng thái
+system --> ui: 13. Thông báo kết quả
+ui --> student: 14. Hiển thị kết quả
+deactivate system
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/XLDDQnDH5Ds_Nt6OjHbDhHy68gKLMgYAqFo1Dnza7icy6PFtGhEK8bs8O2WYhZHq8IbcKN2LGLnC_iZy4-_BPCpBaE8guTrpxxdtd3C7GyK7IiTzE8UYo2uqbfCYku8Qv3zb15LajsZWJD3_aSXl95J4OtG5TnZZlae6S3P51to8eT91A1LBQQxmHSgbWdCiU8A022vBa1RRzHEgqEWYcyXkEMKyL67C0gwunuSXdAEp5ozNbS3RRZtaqgpv6Jwrp_mL9Xbq6MktiVoql91ToAXOp5EqsuojjqFZERHeeUdYLP5zetCvuPOJ2sxE4oEkGWBMs_PSl2vdgloxG2zAYiMrl8UOtXHwL9fffeM1buUqyD35SP7D1LsP_o8I9UGTVDNjvO-P4NWjxBiuDGR5PjSjsaqZIHDuQ5YiZwYhMFnHUAi9YlDywgzallLP4DfzZFSLEjPK4EewHP-COG1GRRDMu35tSHGbIADybj9AUWpVN66m132uAWajF27mYLbUhiW_eBk90zcMpsN4mZwvV5fgynzgpqLdOCuP5Tax0_iYTjDwsxILz5u-JTPjeGni8QhKXRRtLf1w-Uz_7u2PyDwi-bNiIjPJqeUA7qkNQxsrR3ohiZ7ERxJHyOVUGE-E1QMS4lp04EcnETFkFyzd2e5vlrICa3PVasB_9gfSlX8Lxdwl5AXgsqvWSu-OZCTbO1KKcJ0bECaw5QpcKfC2tx7qxcrYoEf6DVThHbdW7VOSa6iwxhE_)
+
+Luồng xử lí nhóm đăng kí gian hàng
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trình tự - Nhóm gian hàng"
+
+actor "Nhóm gian hàng" as team
+participant "Giao diện" as ui
+participant "Hệ thống" as system
+database "CSDL" as db
+participant "Ban tổ chức" as org
+
+== Đăng nhập ==
+
+team -> ui: 1. Truy cập form đăng nhập
+activate ui
+team -> ui: 2. Nhập thông tin tài khoản
+ui -> system: 3. Gửi thông tin đăng nhập
+activate system
+system -> db: 4. Kiểm tra tài khoản
+activate db
+db --> system: 5. Kết quả xác thực
+deactivate db
+
+alt Hợp lệ
+    system --> ui: 6a. Cho phép đăng nhập
+    ui --> team: 7a. Hiển thị giao diện chính
+else Không hợp lệ
+    system --> ui: 6b. Trả về lỗi
+    ui --> team: 7b. Thông báo lỗi
+end
+deactivate system
+deactivate ui
+
+== Đăng ký gian hàng ==
+
+team -> ui: 8. Nhập thông tin gian hàng
+ui -> system: 9. Gửi thông tin đăng ký
+activate system
+system -> org: 10. Chuyển yêu cầu xét duyệt
+org -> system: 11. Phản hồi kết quả
+system -> db: 12. Lưu thông tin gian hàng
+system --> ui: 13. Thông báo kết quả đăng ký
+ui --> team: 14. Hiển thị kết quả
+deactivate system
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VPBFQXDH5CRtzoa-icymjlun42cjq4AB2Fe2T_wOUsdcpZYvjvYbTD656qiHjorTICI0HLSPnCKDliUyYUUGbDn94rS3SxzpldFExziTMbbQbmtGsjDrTUOmkwYhIzZIVpSAjgvkiOMNol_CqDVIGFahqsy98MERbsZTUu4SmgOo4mNrrR4kfB5e7MYP8o63SyCAEDryFwGNM5LN5uiMmz7Gffb8f9MH7APexRz-SSmlIA9cwPuqFEPdn5G-Zbc3lEmBqUjXzcbsPlemgfvE2lHwGl1es7eEfxlejF6cT2F4_8gtUPdHya41xwXFfKr9tIXysAQBi09M-L-ajzh0-YkD4vNNqniZd2RjOeakjjiugAk93kKRd1Pxpp_S8ucws6dZYE5aX4KsZ9Q5T9OambRW-eYgwkaVYtUEf7ZlhsFmYMzZaQHXdP032o9mKs1070G0t0smsFYnR6DVvIYK7nShimCW3KiPF1a_8V4Xpsl0VX_HNz8dIdvYb4W71FLeVWxrV-k8CV46ftNrWMLVz1fFLitRHVuwNyXIauIxteKg3S46EJdnluCetylBqpNO0_qAz6URePFFPk8SNihc0pwu6_4LCVBV7AVqgoEAOuk4_vzRGShGiKE1VgKu5dpIImh94lzAeZeKuUE_Fzo6JLOGTBORnmtxXYirW7HscY48YzOmsILKBXk8Vm00)
+
+Luồng xử lí nhóm giáo viên/nhân viên chấm điểm gian hàng
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trình tự - Giám khảo chấm điểm"
+
+actor "Giám khảo" as staff
+participant "Giao diện" as ui
+participant "Hệ thống" as system
+database "CSDL" as db
+participant "Nhóm gian hàng" as team
+
+== Đăng nhập ==
+
+staff -> ui: 1. Truy cập form đăng nhập
+activate ui
+staff -> ui: 2. Nhập thông tin
+ui -> system: 3. Gửi yêu cầu đăng nhập
+activate system
+system -> db: 4. Xác thực tài khoản
+activate db
+db --> system: 5. Kết quả xác thực
+deactivate db
+
+alt Thành công
+    system --> ui: 6a. Cho phép truy cập
+    ui --> staff: 7a. Hiển thị giao diện chấm điểm
+else Thất bại
+    system --> ui: 6b. Báo lỗi
+    ui --> staff: 7b. Hiển thị thông báo lỗi
+end
+deactivate system
+deactivate ui
+
+== Chấm điểm ==
+
+staff -> ui: 8. Chọn gian hàng để chấm
+ui -> system: 9. Yêu cầu thông tin gian hàng
+system -> db: 10. Lấy thông tin gian hàng
+db --> system: 11. Dữ liệu gian hàng
+system --> ui: 12. Hiển thị thông tin
+ui --> staff: 13. Thông tin hiển thị
+
+staff -> ui: 14. Nhập điểm + nhận xét
+ui -> system: 15. Gửi kết quả chấm điểm
+system -> db: 16. Lưu kết quả
+system -> team: 17. Gửi phản hồi
+deactivate system
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TLEzRXD16EptAKPkaKyuv0Si6KLnf4GYIeCBAFT-x5tbRi_OkmZNAIWG4b4AsbW8eI0YYA3o5HHdyHxt9doBVRdrSQbEkc_c-vcPtPzgFj4cYT4wa4LsRh2yAB9Bw4d-JGde8hj56qSodoSu4yNYKug0FfyJmbbyqcAC1pgTeEM2Mk1JKElXa8sflmpac2jjCJn5ICItoa9Wv6Rzc2hGeiWkr6ZLOpRLKS92hhdFfn5Q_UU79xQ2qD-adehyPuAHv0eYlrhJTSGJndezB3yipzK8YhQx6QFNO-pVTcW_XP5TT3mC9cQ6m9OnJ2VsFeTXRvIlkOu8lSdSyd2wQgf5_ei8MYfc99NNktVnoCDHaTr8pFAlnexuOkxfNfwx-jWUeT_5jeSN-Jo0rUMMFlcL99bJqbbLJ98ZzD5snkvuU5OiVckyCWJ5cwe52oENntYiCR2Y2GJs1WO0vGxhEtUvXxv8CHRvDTrw9vR54i3YLePtiKVGOniE1Jll7KQLwxNqi2WcKmVsduPVBEQoSRRluI2VfuYBxADickZN9gwzy2jIf4Btx39NaMki3Kf_Ox__a_BOiv3ilNAYHcW2hq-hcV_4mylAzYeZ3hrcT-UXXnFgD6j6rstkK7OFY-mxOYkmQUfRXdohhfARM5VF3aLsK0qN3gd-SBRlybzAzc2LQaM9kzOrDJexvLiugw9PoqHTZbsIuyyFup8SY7tX1Deh-uu5rHLerKlPOFW-vS0aCViB)
+
+Luồng xử lí ban tổ chức quản lí sự kiện
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trình tự - Ban tổ chức"
+
+actor "Ban tổ chức" as org
+participant "Giao diện" as ui
+participant "Hệ thống" as system
+database "CSDL" as db
+
+== Đăng nhập ==
+
+org -> ui: 1. Truy cập form đăng nhập
+activate ui
+org -> ui: 2. Nhập thông tin tài khoản
+ui -> system: 3. Gửi thông tin
+activate system
+system -> db: 4. Kiểm tra tài khoản
+activate db
+db --> system: 5. Kết quả xác thực
+deactivate db
+
+alt Hợp lệ
+    system --> ui: 6a. Hiển thị giao diện quản lý
+    ui --> org: 7a. Truy cập thành công
+else Không hợp lệ
+    system --> ui: 6b. Báo lỗi
+    ui --> org: 7b. Thông báo lỗi
+end
+deactivate system
+deactivate ui
+
+== Quản lý lễ hội ==
+
+org -> ui: 8. Xét duyệt gian hàng
+ui -> system: 9. Gửi yêu cầu
+system -> db: 10. Cập nhật trạng thái
+
+org -> ui: 11. Quản lý lịch trình
+ui -> system: 12. Gửi dữ liệu
+system -> db: 13. Lưu lịch trình
+
+org -> ui: 14. Theo dõi báo cáo
+ui -> system: 15. Yêu cầu dữ liệu
+system -> db: 16. Truy vấn dữ liệu
+db --> system: 17. Kết quả báo cáo
+system --> ui: 18. Hiển thị báo cáo
+ui --> org: 19. Báo cáo hiển thị
+deactivate system
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VLDDQnDH5Ds_Nt78leDJQri3aP8ABRG8eWjTllbmvk7aJPoyAMPTn4Kt5X5nrr14AXOjw2Q3k9ZW_vX_uhrCqhoyIZT9u9rxpZttdEoCZ2nCESZGwQkcEYunEssgzp15_KsdC4rrXJNqfUQV7n2cJNKHTeIGeSaBTDm7o17o8X538bMX6afjqDbJCaT4x6yr0r2grVTzUe4XWbETC02ZySZ40n598mCvYj7PVVBma5yG1KBqUfYzcnth13fjffT3z7f2a2ZM7X1r5xw7fqKvHiYFU94N0_9auNbtTIHDJ6XxRjt3evRGfFLFWXkbOUepXPTftapFjIWLOzljkhZhOQ-fBfK5NrBFBRHVF1K5NMnuEE0Z3s0AQLDRW-Gm2h1cwToZgMRwn-1LIL2yhYSX-5fNeOXYUqx8p82EUJv4HYSL0B1OOEvnKthOvnKqcE84oJARbbyZgt_pAE5vZEFiOalQHsN7Ppf5oBv5d5541-qDqjlL0m_zUf8puAEwAHAGICiJB56nZcoVYsx4TehSYSVNs_FW6rxbatAxiUtXMNrX49LZsj6mVGqsapZXtb-4Eww_bkpwI-c4wT_niClNQ6jbO8fcEj497sUYLXlfUyvw9s4w_uivklxwGZXggk_8E9aRojIymxy_IeTeHN63JnddYEfVghrcI1-k65Nh-RM_snGtv_4VDTFFsWQwPVMtLjfgIJjTyBUT9YwHTYTy2gA_U45g3Vod53lKbNAGYNy0)
+
+Luồng xử lí quản trị viên
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trình tự - Quản trị viên"
+
+actor "Quản trị viên" as admin
+participant "Giao diện" as ui
+participant "Hệ thống" as system
+database "CSDL" as db
+
+== Đăng nhập ==
+
+admin -> ui: 1. Mở form đăng nhập
+activate ui
+admin -> ui: 2. Nhập thông tin
+ui -> system: 3. Gửi yêu cầu
+activate system
+system -> db: 4. Xác thực
+activate db
+db --> system: 5. Kết quả
+deactivate db
+
+alt Thành công
+    system --> ui: 6a. Hiển thị giao diện quản trị
+    ui --> admin: 7a. Truy cập thành công
+else Thất bại
+    system --> ui: 6b. Báo lỗi
+    ui --> admin: 7b. Hiển thị lỗi
+end
+deactivate system
+deactivate ui
+
+== Quản lý hệ thống ==
+
+admin -> ui: 8. Quản lý tài khoản
+ui -> system: 9. Gửi yêu cầu
+system -> db: 10. Cập nhật dữ liệu
+
+admin -> ui: 11. Phân quyền
+ui -> system: 12. Gửi thông tin phân quyền
+system -> db: 13. Lưu phân quyền
+
+admin -> ui: 14. Sao lưu hệ thống
+ui -> system: 15. Gửi yêu cầu
+system -> db: 16. Thực hiện backup
+
+system --> ui: 17. Hoàn tất
+ui --> admin: 18. Hiển thị thông báo
+deactivate system
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/XP9FQnD16CRlyoaUSk_YLll7GAIqGWjMKPg3rza_PeTkTjDaff2ZzE2X5ui7ZpQA2CMY1K-xY8SDVe_v9hwpGyXa6l2qiE_pplE-x-_PcqW-bcgOexClT7sXCB_IzGV8SVEzo21rVOSDl5Aw-bBGJrrVubmqDqM7CHxBSepEcXhu13mPYeADw74HYn4l93g7WfT8oEMTbIYnMZ-Y2cIcwwjYq0ecqubCXopXaaTyag9pSFBqkAqa4MEz7kRlvnV504McgziHUZt6MbjiF84INOG1dklw4zwKuo7jvMZDyEASovHqgpsR0LxOvsJM_A86IMieOSfsd2uU1ZZKzQt0jBbHY7NrJItVio9cFwOhYRfu5E1rCulRvUxYfPZMI29iE6zl1NYcgpyIP-QiB4bTBUEvH3zhhebCR8PZ0B2miWjWcmSuCYYBrkuIW-NPSUR0QfkLC8sMLXSxrDiVgobYUm7NAis9G9zEyrKYqjLCh3MF0kmtinAvhZ-ATGwHDvqLfaNYxhe0dxgO2FWYY7dp6vcJblleTmDNAvjhWTEif1y-pCVtONhmmWS13imzR7Oa4bt_G6uEglp0XG5UPirdS-Yfhj_wPk7cmcqPBepS1j-RidRyzwVoH9uhnUk46ET6w9x5Tz_w_wxR580sfCXiOY8UdweHOnxeS8SubXGFI9C8jaevtFKestKHKJJMSDuZ_6gOity0)
+
+
+
+
+
 
