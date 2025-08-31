@@ -528,25 +528,25 @@ Quy trình của học sinh tham gia
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
+@startuml "Quy trình của Học sinh tham gia"
+
 skinparam activity {
     BackgroundColor LightYellow
 }
 
-|Nhóm gian hàng|
+|Học sinh tham gia|
 start
 :Đăng nhập hệ thống;
-:Đăng ký gian hàng;
-:Chuẩn bị thông tin gian hàng;
-:Quản lý chi phí, doanh thu;
-:Xem phản hồi từ khách và giám khảo;
-:Điều chỉnh hoạt động gian hàng;
+:Đăng ký tham gia lễ hội;
+:Xem lịch trình sự kiện;
+:Đặt suất tham gia;
+:Xem kết quả và phản hồi;
 stop
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/LP0nJiGm44Lxds8Em0cWMR4jGgA3qYIHnqeyZfBn8iHI80g4Q5XHqMr4XT1MKCMYSYxYcp1AWNPTkFZp_l-ZMVIiEmwkKNrjgTMTTg0BjYlBjt2dGDwfBchJ-K3bqZU-WpDhaA-gfl4twbwfzJccRmV6QW9CMp9hDMUgu-brUYG3X7dSjO0vFW7Blo5pyZ-iq--ULVGbXZn-4bpd-29u-X68BHr25y9y43HYBj12Ysbt1ANNX6890bnMJjGPaiOt2vpZ5zIOXW9XbROIbmOdWY1-tiRc-12W4FfPKj3dSM2ODZc-apaexzctQb5HAKVx0m00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/RO-zIWGn4CVxUOhX7aERGniB6pijGsv9GhB9canE3izAn484nSfE4B7HmahO81PxBp9lOlRGhKoL-N_yXfad4f5owt1sb5T8SNZp6YMNLu47N6ub9bC5qg95PSGC85dZEn7hB2IPfQ4LdWFMjoUaLJ5alzWFBaGyD4hJIUDSE8CBWFK_k3LiryFEvcvpwHLwpVrxXvhBTSrmkVTgTpBjy3KLqN6v6dEFfWQEctOKRgJ-Eo1n-K1hAiTl0Tn_4gRC_GjDZD-YvVwRyBHwpxWSdh3JzUT7zaDb9meTp1k_oAs37m00)
 
 Quy trình của nhóm gian hàng 
 
