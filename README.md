@@ -138,7 +138,7 @@ Admin -- System : system config
 * **Quản lý danh mục** (tiêu chí chấm điểm mặc định, danh mục dụng cụ/nguyên liệu tham khảo).
 * **Cấu hình hệ thống** (logo, tên sự kiện, email server, sao lưu/khôi phục dữ liệu).
  
-### Biểu đồ Use Case tổng quanquan
+### Biểu đồ Use Case tổng quan
 
 <details>
   
@@ -537,16 +537,31 @@ skinparam activity {
 |Học sinh tham gia|
 start
 :Đăng nhập hệ thống;
+|#palegreen|Hệ thống|
+:Xác thực tài khoản;
+|Học sinh tham gia|
 :Đăng ký tham gia lễ hội;
+|Hệ thống|
+:Ghi nhận đăng ký;
+|Học sinh tham gia|
 :Xem lịch trình sự kiện;
+|Hệ thống|
+:Hiển thị lịch trình;
+|Học sinh tham gia|
 :Đặt suất tham gia;
+|Hệ thống|
+:Xác nhận suất tham gia;
+|Học sinh tham gia|
 :Xem kết quả và phản hồi;
+|Hệ thống|
+:Hiển thị kết quả & phản hồi;
+|Học sinh tham gia|
 stop
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/RO-zIWGn4CVxUOhX7aERGniB6pijGsv9GhB9canE3izAn484nSfE4B7HmahO81PxBp9lOlRGhKoL-N_yXfad4f5owt1sb5T8SNZp6YMNLu47N6ub9bC5qg95PSGC85dZEn7hB2IPfQ4LdWFMjoUaLJ5alzWFBaGyD4hJIUDSE8CBWFK_k3LiryFEvcvpwHLwpVrxXvhBTSrmkVTgTpBjy3KLqN6v6dEFfWQEctOKRgJ-Eo1n-K1hAiTl0Tn_4gRC_GjDZD-YvVwRyBHwpxWSdh3JzUT7zaDb9meTp1k_oAs37m00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VL6_JlCm4D_lAKxzfEyXcgM2WGuiR6MqqYYsubo2unHLXAb230Y9Yecjg48iC30X9K8CwOluJRWMjQZWDaFi-vr_Vtpk5LOOMwOQEoVb6ArfNqXYw9fdWNtNt8POA0Qi52d6IdG0YaHHBWpN8hHgfEmOBm3vEn1X4fkifE5XfZE3nogMzZJIEZk7Iu3A8rV1oXwwYxl5X68awUhN7ALhhj7oVqfn0DM_NEWeDb54hF7JgQ0xQ1_3LVd6IpjJcCZCrNCA_6uRdwJzsA2eNNErj7nG0VmsE9BgEnJXOhgcxbGVHEbIxIQKwq4M70qJnQBqLxpF-8GOOCesRqz-LxzRB4fNFzbD8m3VODR1lOTtf4zS_MdnZ1bp7BKpp2Nl25dtNks_m1RrluVeU_iiXrv4mpBLy0K0)
 
 Quy trình của nhóm gian hàng 
 
@@ -555,7 +570,8 @@ Quy trình của nhóm gian hàng
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml
+@startuml "Quy trình của Nhóm gian hàng"
+
 skinparam activity {
     BackgroundColor LightYellow
 }
@@ -563,17 +579,35 @@ skinparam activity {
 |Nhóm gian hàng|
 start
 :Đăng nhập hệ thống;
+|#palegreen|Hệ thống|
+:Xác thực tài khoản;
+|Nhóm gian hàng|
 :Đăng ký gian hàng;
+|Hệ thống|
+:Ghi nhận đăng ký;
+|Nhóm gian hàng|
 :Chuẩn bị thông tin gian hàng;
+|Hệ thống|
+:Lưu trữ thông tin gian hàng;
+|Nhóm gian hàng|
 :Quản lý chi phí, doanh thu;
+|Hệ thống|
+:Hiển thị báo cáo chi phí, doanh thu;
+|Nhóm gian hàng|
 :Xem phản hồi từ khách và giám khảo;
+|Hệ thống|
+:Tổng hợp & hiển thị phản hồi;
+|Nhóm gian hàng|
 :Điều chỉnh hoạt động gian hàng;
+|Hệ thống|
+:Cập nhật thông tin gian hàng;
+|Nhóm gian hàng|
 stop
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/LP0nJiGm44Lxds8Em0cWMR4jGgA3qYIHnqeyZfBn8iHI80g4Q5XHqMr4XT1MKCMYSYxYcp1AWNPTkFZp_l-ZMVIiEmwkKNrjgTMTTg0BjYlBjt2dGDwfBchJ-K3bqZU-WpDhaA-gfl4twbwfzJccRmV6QW9CMp9hDMUgu-brUYG3X7dSjO0vFW7Blo5pyZ-iq--ULVGbXZn-4bpd-29u-X68BHr25y9y43HYBj12Ysbt1ANNX6890bnMJjGPaiOt2vpZ5zIOXW9XbROIbmOdWY1-tiRc-12W4FfPKj3dSM2ODZc-apaexzctQb5HAKVx0m00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/bPAnoXD14CVxVOhX4wnyWkzhFanXYY04B6AvkHmxoztD7fVTIF0i98L86eDOsEL88Q91HQiiLXjyZtqJXuF0aPm1hzXZv_xp_mtpl_kvbPLrHGutOxS4MuMlX914_qd2Kmm_2r1Q4c3OaheHOfvfAcKb2v29rGjjb_1I03-FPPAfoZYQ3KnkAXXfXVPvckVcXNWbH7tkLOiMB6wFxuuhKa0O3_iICFetOFdSaBeJzODIvgcgqfJgOUTBBMudeKdQwmz-XQs634qyxEYk3tM2PE5tfyxICzCdgA4TXE2uENNqEmxGnSDdWcdqQtO8lrXiDLsr7_tvxi1MqN_hx-WdZHcq8yXvzWGrb1ZsZs1c926xk4lAK4U_ehQmXcbe32HyzFVsyIPfmSAMoHRlDTZelq26l724HTYoEZG55rXYBl7Felz02lY-A-4XO7UQhks_WcBzQmS9QzuI0dAeZUKqelz8wkfs1-qFrCPd_sE_SsjASP_Ip1Mv-0i0)
 
 Quy trình của giáo viên/giám khảo
 
@@ -591,16 +625,31 @@ skinparam activity {
 |Giáo viên/Giám khảo|
 start
 :Đăng nhập hệ thống;
+|#palegreen|Hệ thống|
+:Xác thực tài khoản;
+|Giáo viên/Giám khảo|
 :Theo dõi hoạt động lễ hội;
+|Hệ thống|
+:Hiển thị thông tin hoạt động;
+|Giáo viên/Giám khảo|
 :Chấm điểm theo tiêu chí;
+|Hệ thống|
+:Ghi nhận điểm số;
+|Giáo viên/Giám khảo|
 :Gửi nhận xét & phản hồi;
+|Hệ thống|
+:Lưu trữ nhận xét & phản hồi;
+|Giáo viên/Giám khảo|
 :Xem báo cáo tổng hợp;
+|Hệ thống|
+:Tổng hợp & hiển thị báo cáo;
+|Giáo viên/Giám khảo|
 stop
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TP2_JiCm4CPtFyMd3gpixLBHeGiB4WEC9ebYAx4TfPT2HPagn4g563fM5K8WChBKe_CYVXFECEFXPFc-FpzvkY3PKcTgZ2ww5QWDNrOXY_vTOgx3tc6fmwSzJNU3IiNZmOs4M5JQDhAL1Z8ZlTIqmhq0dpEPLMNhEflFNErQdEjIqNLHr-vMF0Yn_YzpBNv1n7Xu7ZQsXENNle6A_Wd4SslBYHXVgi8X3zyQoiNZdZ1iez-nl8x-CObtcbKpzhuPtkdeDmQKJCID7J8LUXRCe-_rNuN5NVWWdA1963PblAICgyBW9g5cQL3qhzp2oqCpOLBNY6bXS_usyGC0)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VP0nIyD05CVt-nIF2gxkxLBiq0vTX0vrZ6d87KdUXUIbMenJ4GSNYpXqinGHnQA2BjvunUzntyIx2gMqcWmlT_T____lxZLpyZ8gaXXgHyK8ADCloC4twj63jj0p2KEXd_70hHE8kFcQonfZUIGmzJ8l0SydCHGqWdC6zZlq_2ZCP863benb1bqHSZeEubYUiWl6olyoIxQw2AilRvPZ307jwI85RjGLaAqJ31kit4kzE0Yp8C2oiw6KhDxNCt-rVRS_VIyWujBcOgCAMU_nGC90VmfmtJE2vSIegSN7Hbqw-5Gqs3Qg8umQu-hWsbRzOVj9u5P4DRXb5m-9xNLP2P2x1zd60dok5xlCDXU_8y6r9xTQDQHjr69jEzDF1FkGEX7Tqsx_U5ht-wq0oenwhR1LG_j10YTEzLqXe-umTBvvkelhRQWMmZS7kywenEKaKzOCS50aCVi1)
 
 Quy trình của ban tổ chức
 
@@ -609,8 +658,7 @@ Quy trình của ban tổ chức
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml "Quy trình của Ban tổ chức"
-
+@startuml
 skinparam activity {
     BackgroundColor LightYellow
 }
@@ -618,17 +666,35 @@ skinparam activity {
 |Ban tổ chức|
 start
 :Đăng nhập hệ thống;
+|#palegreen|Hệ thống|
+:Xác thực tài khoản;
+|Ban tổ chức|
 :Xét duyệt gian hàng;
+|Hệ thống|
+:Ghi nhận kết quả xét duyệt;
+|Ban tổ chức|
 :Phân công vị trí;
+|Hệ thống|
+:Cập nhật sơ đồ vị trí;
+|Ban tổ chức|
 :Theo dõi tiến độ sự kiện;
+|Hệ thống|
+:Hiển thị tiến độ;
+|Ban tổ chức|
 :Xử lý sự cố phát sinh;
+|Hệ thống|
+:Ghi nhận & cập nhật sự cố;
+|Ban tổ chức|
 :Tổng hợp báo cáo;
+|Hệ thống|
+:Tạo & lưu trữ báo cáo;
+|Ban tổ chức|
 stop
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/NP2nJiCm48PtFyMlFaQxL6Lb08a1HkDKiTNq72MNeeWoCJ2mq861ZSA0Af412PPQYC5v4Ry9bxBXuOR_vE__TDEQTSNDii3ej6d1LNmd2vF2cyPC4pY5HnYRmiwCbAeNZafTwIMqORTotE9QGTvCcqLU-OQo8r_u2iSkjtmnBmf_fMwKMlz3hTMXLetxX_wMSf1D-ww4xEx0CZUKJzJuFEuOMTDAoiYT86nyFcnER7mXcFWfVrSft0_UdUHdTkwHnIy7Tcd_G-WtAJoXJk432oSS6h0fT2ZYzrzif0sbZLj6xSWE4F4KhcYybhYCMmyZOoBAlbJJEMLoBVKB)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/VPAnJiCm48PtFyL9I7s8TgdQWGuC30mm1YUAhQJda3Y5YZ1rOEX2XHZO6Zfrg009baI8mLNVms_2AHLIGo8oEBBl_k-_tt8_qKwiqt78aa1YvCJE61okvKJgATmoe6_WyC2FLOhkK8KgXXFf2ttXXQ6wPdUCPGC7GTlo2RYmvPfdh4AoxlPXEqCVKDXY4m7Lxa7Jka2_nxAZo0azF_Oyp4O7bOnrpqtEg-qx_SnIGY2KBLROQt6YvhK6DvqIGeClgIxCiZBuGpqMSZy9Gc2BRmrNAK7Xva3VQd0gp0i2Dn-KP6BBEUZOR9huOPMnCj2Gx7BOBcpvM5CqsMV2K-2QJmbQqanOYPuXeUWGI3B0fj68pcTO7SnhilRhiUK6GlErPtA2G2HCJYDA5FzUKWTuBTAllZq8xT07sguYk3Iv0avBWqzz1TKw4ExUKj2nBLzhtIqFIKMixw5Bx_C7)
 
 Quy trình của quản trị viên
 
@@ -646,16 +712,30 @@ skinparam activity {
 |Quản trị viên|
 start
 :Đăng nhập hệ thống;
+|#palegreen|Hệ thống|
+:Xác thực tài khoản;
+|Quản trị viên|
 :Quản lý tài khoản;
+|Hệ thống|
+:Cập nhật thông tin tài khoản;
+|Quản trị viên|
 :Phân quyền người dùng;
+|Hệ thống|
+:Ghi nhận phân quyền;
+|Quản trị viên|
 :Cấu hình hệ thống;
+|Hệ thống|
+:Lưu trữ cấu hình;
+|Quản trị viên|
 :Sao lưu & phục hồi dữ liệu;
+|Hệ thống|
+:Thực hiện sao lưu & phục hồi;
+|Quản trị viên|
 stop
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PP2nIWD148RxUOgV53v4qWJJMXYiB9TBk5rkCtlkxKOEOo4M5ZQAjI1A44GnhRTORSXxx9ku5wnqYYd--Rz_c1atJbZd5ng3gM_XR7ndYIA5Lu6fJzqBPos5MonLVEC1KLCfheKL2uZ2gQLoBIu8kGv5KPNMU9vDZ3OMHwgKxdIkjJcdIwBL_xGLxPVJS7ktlUOIB5FtKKEcS0EN-psN8nh-SZf-myKdXKgQNiYJOncV6MU-JU6AmULkayAZmYn-xS59wjOUiZ_eR-Q9CD2xZSS1wYokYzxmaD4KFg5LDliHDSxKD9xpB7-7VW00)
-
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/ZP0_Ipin6CVtl8e7Vl1x4UrIxA131qK77SFrI4BJ9p6NL8hd80uEBegpu1-wY6855tiufVHzv9sOkmgMQm-yuOxBa-_dy-NfP9OQwuQIP0E1cXew19fOCH9s3AS4uhD5am4poc6_gwGoq1ECswDKIdL2pWZ9zroOFI5O4ueh60d_Z3cfgAGrlvvV80FaOVQgWOVY4cnyto1ha_oVfZ9b9aqntrcPvAHrw1-IwlSzVlozW05NfQEzMTRwEPJ-gtQz3kvMFQewDXxx3sHW1Vv9iilz8yAn6uVY707POXgAEm5z_ubitRJDnTA3e5U3JVJOREA0-nVazJtLoBt5r5NXDqX-GqtSVQf0bed_e2DYafJqsrYxp4iHqMvTSR1SFI_72DbcH8CniqgJJefzDvJV)
 
 
