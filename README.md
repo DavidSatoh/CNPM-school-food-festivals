@@ -1198,7 +1198,7 @@ KetThuc --> [*]
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TPF1Ilj04CRl-nH3Zt_e2_mFKjf0XO8NUnCF8KspIvkDj1kmvo8zY60H3oA2fOXK4HKzPH4FARx7leapPRT90nud-_jcljalsnWhVwJIU0YrfZ1wci9wRlGLg9795Z82nVE5WBRm9V3yNaOrTlJl6EhrFV1y6NKcy1-wI2OG6tqh8Dg2p9uJskA9bqv2XN3Rw1T1NJ-fkP3CdTcUZcjY7sNqDGJSw5K09pn_WbuwCNgcTZNT54j14gFFIVEyqSm5EYYe_SHNNe8pYSjU5QsPFQOmDFeC4ByHp27MIOlxiIV261M7ok_tgMls4AEGxYbc9O84dL1rUHeGRVGx312QIHYOx5lHkbd065wr2kszsS9jiZqhLNOpMpXtjYocsmzsFcComMea8guWwHSf7V3y8wPDBm8O2ybnZ_KKbntaNnL9AQtr9Setrta7f_bARHEe3Ya4Fsz6ByjvLUc_0wjmfSYA_mzjaoMUu4z78M9oCge8ozcXeto9dBMrcs55vo8ipzjDq5gdlF4PC2TmTIEKFNnAx1S0)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TLF1IiD05BplLxopq1_m8CK6AXIys9ju26cQNTfif7q1UoxIWmZsu454K8f85L7HKnRnaE9_x9_ujkmssu37oSxictcJROun766U3jdnpWaq6diGX3BfJ60Nkhfuo23LwbP08a89lBoN2RFdXjhYMP1FOYHoMwjN0SZBBva02idScRtJyVRf7jJg6YAkrJA2Kru-Go-VQ3N3RKqt9oYCHAiBetbPQ-Q275IiWop48AEPXbUy8QpckdZAOQZLEH3zHZ17iKvQF4m34QUaECAmtpUt5eyf2OLMqvHv32FenDZbUMJOMdt0W4Wp2GDT_A29MqICqGenjdkpm2NPd7d89hF0kREmccu_sFcCoOpGI2GS8UjNBHtoyZCrIIyZ60l9ASTgIc47vNTDuhMrkYBvUfrtS5OkSTD0VKWb-7tNQk7tLMV_NrYDvrNMtlnMPDjOuXdzT4Y0cfD9JUXtHuxA1V6ihUqEQpfNeJzlkq5htVHDpu0vWSFDMFReYVm1)
 
 Trạng thái tham gia
 
@@ -1270,7 +1270,7 @@ note right of Huy : Hủy bỏ
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PP6nIWGn48RxUOhXIk5Um4AEG_104C7hn2AUjqd0JOurAROK7q35oagNGmJXmC9gKrZay3tcJPpWHjQrMCXildyc_p-JAoSgvyjB74qrXHkFstiA3-WgQXiZqQdOQ5mfJUrdkekDKIXrR4PmkdE6u_4U7YghvyBYBfuuKHHOKdZA2e1ycyXzOIH_wa0BfhTtFF3QeDFnpUD2nGtqWIIOMM7cmZ5yHE5nrP__d_KrSrCAjtymo3qImq-6nEKpi7ktp0wwgjUu-zEro9Ml0OpbKwMbScYBNWJ7lqbzlLDOBz1nZdQ03tFWalrJ-rAoBcsX70YoXmJ7DKeA6vrMyymk5_73o07_ayMCmckDvvm8J9RcWfSCtm00)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PP6nIWGn48RxUOgfXNi12pb4y40GmUl48fwtIS1DZdDIR2a-W5fQwNA881nOM6qAYno-nxo94vR0kXOBCvll3___PtfBQasXle6BlKkSJ0xmn7WxLnxtyPnKLM7DyGLNndBt7G3AQIQFbDFocMEhXDuzMevt3iccZu0BaxOm1B9WvfMRAnBubEFp2dTFgNK6jKtjVpOqmXroVFY3GRaZCs8PCbTca32qB0dwRUYo_rDib2qq0CxBjBRQ4FfgKC5Pdrii_7not2oGk6lz21_t8Alav-wj5fsKSb-F12L3XjC6DSUjHJBfLL8kqfVJ8xxlOiRnlS4hQGIcItSjR_OB)
 
 Trạng thái tài khoản 
 
@@ -1308,10 +1308,10 @@ note right of BiXoa : Đã xóa
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/NP8nImCn5CVtV8f7Hw6uEqWv70GvfqC4SGZNUWdj9NAcujxHHH471z7Z9X51SBB1AOVV8z_4b-lZp7NBw_kzV_f-kScLuPLPbWiO9TBRrHBQUsyVm5H-NQi2Z72r1EDU9So5zkj6ZTZPpZcCn_kGSPrg2NlGthKhPEVkXp7wCVGFDJS76Xk1-FtqjicH-SW5XAJQi1u8z97G7CaJ2PS2koNiGkBjBLxhllWGJUHfnnuN8VLPmjHzO-icW2paT5IgAJBX2eotZv0BRzzoABrzeLXYudyR9U2Y3E-AAeQwp8mstnJz89LXcewfZeekY36byLp9GXZG5_yAiyWmN7lxpi6W1JtaXqgvAiXazsXFgjYYQVyiwAI5Xq2lYDudTWCB79F30J8VUDTiV4zcQegV3_i3)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/NP8nImCn5CVtV8f7Hw6uEqWv70GvfqC4SGZNUWdj9NAcujxHHH471z7Z9X51SBB1AOVV8z_4b-lZp7NBw_kzV_f-kScLuPLPbWiO9TBRrHBQUsyVm5H-NQi2Z72r1EDU9So5zkj6ZTZPpZcCn_kGSPrg2NlGthKhPEVkXp7wCVGFDJS76Xk1-FtqjicH-SW5XAJQi1u8z97G7CaJ2PS2koNiGkBjBLxhllWGJUHfnnuN8VLPmjHzO-icWApB2LIgAJBX2eotZv0BRzzoABrzeLXYudyR9U2Y3E-AAeQwp8mstnJz89LXcewfZeekY36byLp9GXZG5_yAiyWmN7lxpi6W1JtaXqgvAiXazsXFgjYYQVyiwAI5Xq2lYDudTWCB79F30J8VUDTiV4zcQegVpny0)
 
-III. Yêu cầu phi chức năng
-1. Hiệu suất
+# III. Yêu cầu phi chức năng
+## 1. Hiệu suất
 
 Thời gian tải trang ≤ 3 giây.
 
@@ -1321,7 +1321,7 @@ Hỗ trợ đồng thời ít nhất 100 người dùng (phù hợp môi trườ
 
 Tối ưu hóa hình ảnh và tài nguyên tĩnh.
 
-2. Bảo mật
+## 2. Bảo mật
 
 Mã hóa dữ liệu nhạy cảm (thông tin tài khoản, phản hồi).
 
@@ -1331,7 +1331,7 @@ Ghi log đầy đủ các hành động quan trọng (đăng nhập, đăng ký 
 
 Backup dữ liệu định kỳ (hằng ngày).
 
-3. Khả năng mở rộng
+## 3. Khả năng mở rộng
 
 Kiến trúc module hóa, dễ thêm tính năng mới (ví dụ: mini game, bình chọn).
 
@@ -1341,7 +1341,7 @@ Dễ dàng nâng cấp phiên bản.
 
 Có tài liệu API & hướng dẫn đầy đủ cho developers.
 
-4. Giao diện người dùng
+## 4. Giao diện người dùng
 
 Thiết kế responsive cho mọi thiết bị (máy tính, tablet, mobile).
 
@@ -1349,7 +1349,7 @@ Thời gian học sử dụng ≤ 30 phút (phù hợp học sinh & giáo viên)
 
 Giao diện thống nhất & thân thiện, màu sắc trẻ trung.
 
-5. Tương thích
+## 5. Tương thích
 
 Hoạt động tốt trên trình duyệt phổ biến (Chrome, Firefox, Safari, Edge).
 
@@ -1358,7 +1358,7 @@ Tương thích iOS & Android khi truy cập từ mobile.
 Hỗ trợ trình duyệt phát hành trong 2 năm gần đây.
 
 Tối ưu cho mạng chậm 
-6. Độ tin cậy
+## 6. Độ tin cậy
 
 Đảm bảo Uptime ≥ 99.9% trong thời gian diễn ra lễ hội.
 
@@ -1368,7 +1368,7 @@ Backup dữ liệu tự động hàng ngày.
 
 Có phương án dự phòng (ví dụ: truy cập offline bằng Excel/PDF xuất từ hệ thống).
 
-7. Khả năng bảo trì
+## 7. Khả năng bảo trì
 
 Code viết theo chuẩn Clean Code 
 
@@ -1376,7 +1376,7 @@ Có tài liệu kỹ thuật chi tiết cho từng module.
 
 Hỗ trợ rollback khi deploy thất bại.
 
-IV. Công nghệ
+# IV. Công nghệ
 
 Frontend: ReactJS → xây dựng giao diện người dùng.
 
@@ -1394,7 +1394,7 @@ Triển khai: Docker
 
 Quản lý mã nguồn: Git + GitHub
 
-V. Yêu cầu thiết kế
+# V. Yêu cầu thiết kế
 Mô hình kiến trúc
 
 Hệ thống sử dụng kiến trúc 3 lớp (Three-Tier Architecture):
@@ -1463,7 +1463,7 @@ database "Database" {
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/SoWkIImgAStDKL3oFRn58UFmchmCXUpCXxlsvocK51tUbQp4nLMGc9oTc9wgeEISavcQLwAaKCsb00JHGQc9oILUmR5SjKXgWbEBobABu6gSy_DAYl9pSbABOY428FdCvDHOc145-SMP9Vb5bM1JKX9B4fCIYu76k41PS8DyWnM20tqK8CQ35SFjLx3HrRL3iKh1IY78DJX4mJ70amj97AeIuGOO2oA1wXma3aGQmmrS3gbvAS2Wum80)
 
-### Mô hình cơ sở dữ liệu 
+## Mô hình cơ sở dữ liệu 
 
 Cơ sở dữ liệu – School Food Festival
 
@@ -1489,160 +1489,103 @@ Cơ sở dữ liệu sẽ bao gồm các bảng sau:
 
 10. Transactions (GiaoDich): Ghi nhận các giao dịch tài chính của gian hàng (thu/chi, số tiền).
 
-III. Yêu cầu phi chức năng
-1. Hiệu suất
-
-Thời gian tải trang ≤ 3 giây.
-
-Thời gian phản hồi API ≤ 1 giây.
-
-Hỗ trợ đồng thời ít nhất 100 người dùng (phù hợp môi trường trường học).
-
-Tối ưu hóa hình ảnh và tài nguyên tĩnh.
-
-2. Bảo mật
-
-Mã hóa dữ liệu nhạy cảm (thông tin tài khoản, phản hồi).
-
-Bảo vệ chống các tấn công như SQL Injection
-
-Ghi log đầy đủ các hành động quan trọng (đăng nhập, đăng ký gian hàng, chấm điểm).
-
-Backup dữ liệu định kỳ (hằng ngày).
-
-3. Khả năng mở rộng
-
-Kiến trúc module hóa, dễ thêm tính năng mới (ví dụ: mini game, bình chọn).
-
-Khả năng tích hợp với hệ thống trường học (portal sinh viên, LMS).
-
-Dễ dàng nâng cấp phiên bản.
-
-Có tài liệu API & hướng dẫn đầy đủ cho developers.
-
-4. Giao diện người dùng
-
-Thiết kế responsive cho mọi thiết bị (máy tính, tablet, mobile).
-
-Thời gian học sử dụng ≤ 30 phút (phù hợp học sinh & giáo viên).
-
-Giao diện thống nhất & thân thiện, màu sắc trẻ trung.
-
-5. Tương thích
-
-Hoạt động tốt trên trình duyệt phổ biến (Chrome, Firefox, Safari, Edge).
-
-Tương thích iOS & Android khi truy cập từ mobile.
-
-Hỗ trợ trình duyệt phát hành trong 2 năm gần đây.
-
-Tối ưu cho mạng chậm 
-6. Độ tin cậy
-
-Đảm bảo Uptime ≥ 99.9% trong thời gian diễn ra lễ hội.
-
-Thời gian phục hồi sau sự cố < 4 giờ.
-
-Backup dữ liệu tự động hàng ngày.
-
-Có phương án dự phòng (ví dụ: truy cập offline bằng Excel/PDF xuất từ hệ thống).
-
-7. Khả năng bảo trì
-
-Code viết theo chuẩn Clean Code 
-
-Có tài liệu kỹ thuật chi tiết cho từng module.
-
-Hỗ trợ rollback khi deploy thất bại.
-
-IV. Công nghệ
-
-Frontend: ReactJS → xây dựng giao diện người dùng.
-
-Backend: Flask (Python) → phát triển dịch vụ API.	
-
-API: Chuẩn REST API (có thể mở rộng GraphQL sau này).
-
-Cơ sở dữ liệu: MS SQL Server (lưu thông tin tài khoản, gian hàng, món ăn, phản hồi, điểm số).
-
-Bảo mật: Xác thực & phân quyền bằng JWT.
-
-Thông báo: Email (thông báo duyệt gian hàng, kết quả chấm điểm).
-
-Triển khai: Docker 
-
-Quản lý mã nguồn: Git + GitHub
-
-V. Yêu cầu thiết kế
-Mô hình kiến trúc
-
-Hệ thống sử dụng kiến trúc 3 lớp (Three-Tier Architecture):
-
-Client (Frontend)
-
-Xây dựng bằng ReactJS.
-
-Học sinh, giáo viên, ban tổ chức đăng nhập và thao tác qua giao diện web/mobile.
-
-Gửi request đến API, hiển thị kết quả.
-
-Server (Backend - Flash API Python)
-
-Presentation Layer: Tiếp nhận request từ client, xác thực người dùng, gọi service.
-
-Business Logic Layer (Service Layer): Xử lý nghiệp vụ (xét duyệt gian hàng, quản lý suất tham gia, chấm điểm).
-
-Data Access Layer (Repository): Tương tác CSDL, thực hiện CRUD.
-
-Database
-
-MSSQL.
-
-Lưu trữ dữ liệu như:
-
-Tài khoản người dùng (Admin, Ban tổ chức, Giáo viên, Nhóm học sinh, Học sinh).
-
-Gian hàng (thông tin, chi phí, doanh thu).
-
-Phản hồi & đánh giá.
-
-Lịch trình lễ hội.
-
-Kết quả xếp hạng.
 
 <details>
   
 <summary>Code PlantUML</summary>
 
 ```plantuml
-@startuml "Mô hình kiến trúc"
+@startuml "ERD - School Food Festival"
 
-package "Client" {
-    [ReactJS]
+entity NguoiDung {
+  *NguoiDungID : int <<PK>>
+  TenDangNhap : string
+  MatKhau : string
+  Email : string
+  VaiTro : string
 }
 
-package "Server" {
-    [Controller]
-    [Service]
-    [Repository]
+entity HocSinh {
+  *HocSinhID : int <<PK>>
+  LopHocID : int <<FK>>
+  HoTen : string
 }
 
-database "Database" {
-    [MS SQL Server]
+entity LopHoc {
+  *LopHocID : int <<PK>>
+  TenLopHoc : string
 }
 
-[ReactJS] <--> [Controller] : REST API
-[Controller] <--> [Service]
-[Service] <--> [Repository]
-[Repository] <--> [MS SQL Server]
+entity SuKien {
+  *SuKienID : int <<PK>>
+  TenSuKien : string
+  DiaDiem : string
+}
+
+entity GianHang {
+  *GianHangID : int <<PK>>
+  LopHocID : int <<FK>>
+  SuKienID : int <<FK>>
+  TenGianHang : string
+  MoTa : string
+  TrangThaiDuyet : string
+  ViTri : string
+}
+
+entity ThanhVienGianHang {
+  *ThanhVienID : int <<PK>>
+  HocSinhID : int <<FK>>
+  GianHangID : int <<FK>>
+  VaiTroTrongNhom : string
+}
+
+entity MonAn {
+  *MonAnID : int <<PK>>
+  GianHangID : int <<FK>>
+  TenMonAn : string
+  GiaBan : decimal
+}
+
+entity BinhChon {
+  *BinhChonID : int <<PK>>
+  NguoiDungID : int <<FK>>
+  MonAnID : int <<FK>>
+}
+
+entity DanhGia {
+  *DanhGiaID : int <<PK>>
+  NguoiDungID : int <<FK>>
+  GianHangID : int <<FK>>
+  DiemSo : int
+  BinhLuan : string
+}
+
+entity GiaoDich {
+  *GiaoDichID : int <<PK>>
+  GianHangID : int <<FK>>
+  LoaiGiaoDich : string
+  SoTien : decimal
+}
+
+SuKien ||--o{ GianHang
+LopHoc ||--o{ HocSinh
+LopHoc ||--o{ GianHang
+HocSinh ||--o{ ThanhVienGianHang
+GianHang ||--o{ ThanhVienGianHang
+GianHang ||--o{ MonAn
+NguoiDung ||--o{ BinhChon
+MonAn ||--o{ BinhChon
+NguoiDung ||--o{ DanhGia
+GianHang ||--o{ DanhGia
+GianHang ||--o{ GiaoDich
 
 @enduml
 ```
 </details> 
 
-![Biểu đồ UML](https://www.plantuml.com/plantuml/png/SoWkIImgAStDKL3oFRn58UFmchmCXUpCXxlsvocK51tUbQp4nLMGc9oTc9wgeEISavcQLwAaKCsb00JHGQc9oILUmR5SjKXgWbEBobABu6gSy_DAYl9pSbABOY428FdCvDHOc145-SMP9Vb5bM1JKX9B4fCIYu76k41PS8DyWnM20tqK8CQ35SFjLx3HrRL3iKh1IY78DJX4mJ70amj97AeIuGOO2oA1wXma3aGQmmrS3gbvAS2Wum80)
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/bLDTgzim37tthp3tST0_C2wNhdEpZdumbj1taPfOa5WbTGQbtN-VCyMUcJEM2tsGZfHpZYLrVNFGkw5hvSlskv8hMTQ6g9K5qKKM-kRm1xGlGcZhqDtbgHa8rM0R-H1IVeZfLoK_IhHElhv-sx-z-LgbhGBRd0nSVUdcUhIDXu_WzWQ65DfsW6qAd06hdluWFwFyZkeIhM7nAScb3tJrjGGl6D-HDpL7onymAyUpx-7I744vx55R9k1ube1BwLCLWaBTpN5-GR0x29CEsVBNPZwAw2DIfukX2jAywdr3PS2lzwvTMZdxxU2SOzzjpHa3Vx0UuTnxji9WCZ3a5JuE_njlYsOdToJxoRBs6EQwENqw7Vuyy7Bt1aRaeclie4saDjxzPqEJMiXomVoF4XMZnGHE51HOumsmm9GiuLymol7oIcBKfwFxmm3s7yT82cl3DaBsdi4U232o9CCjgKBzrt3vTENpkLhH8t8AllG93hUJecdpL0vuTfiY18ixU5CYZZh0OUlYTpr3i_vfYP7-FtYSlH1hRIz3rufV)
 
-## Giao diện người dùng
+# Giao diện người dùng 
 
 Giao diện người dùng sẽ bao gồm các trang sau:
 
@@ -1663,12 +1606,6 @@ Ban tổ chức: Duyệt gian hàng, theo dõi sự kiện, thống kê kết qu
 Giáo viên/nhân viên: Giám sát, chấm điểm gian hàng.
 
 Quản trị viên: Quản lý người dùng, gian hàng, sự kiện, dữ liệu hệ thống.
-
-
-
-
-
-
 
 
 
