@@ -1089,6 +1089,588 @@ deactivate system
 
 ![Biểu đồ UML](https://www.plantuml.com/plantuml/png/XP9FQnD16CRlyoaUSk_YLll7GAIqGWjMKPg3rza_PeTkTjDaff2ZzE2X5ui7ZpQA2CMY1K-xY8SDVe_v9hwpGyXa6l2qiE_pplE-x-_PcqW-bcgOexClT7sXCB_IzGV8SVEzo21rVOSDl5Aw-bBGJrrVubmqDqM7CHxBSepEcXhu13mPYeADw74HYn4l93g7WfT8oEMTbIYnMZ-Y2cIcwwjYq0ecqubCXopXaaTyag9pSFBqkAqa4MEz7kRlvnV504McgziHUZt6MbjiF84INOG1dklw4zwKuo7jvMZDyEASovHqgpsR0LxOvsJM_A86IMieOSfsd2uU1ZZKzQt0jBbHY7NrJItVio9cFwOhYRfu5E1rCulRvUxYfPZMI29iE6zl1NYcgpyIP-QiB4bTBUEvH3zhhebCR8PZ0B2miWjWcmSuCYYBrkuIW-NPSUR0QfkLC8sMLXSxrDiVgobYUm7NAis9G9zEyrKYqjLCh3MF0kmtinAvhZ-ATGwHDvqLfaNYxhe0dxgO2FWYY7dp6vcJblleTmDNAvjhWTEif1y-pCVtONhmmWS13imzR7Oa4bt_G6uEglp0XG5UPirdS-Yfhj_wPk7cmcqPBepS1j-RidRyzwVoH9uhnUk46ET6w9x5Tz_w_wxR580sfCXiOY8UdweHOnxeS8SubXGFI9C8jaevtFKestKHKJJMSDuZ_6gOity0)
 
+### Luồng dữ liệu
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "DFD cấp 2 - Hệ thống lễ hội ẩm thực"
+
+!define PROCESS circle
+!define EXTERNAL_ENTITY rectangle
+!define DATA_STORE database
+
+' External entities
+EXTERNAL_ENTITY "Guest" as guest
+EXTERNAL_ENTITY "Student" as student
+EXTERNAL_ENTITY "Team" as team
+EXTERNAL_ENTITY "Staff (Giám khảo/GV)" as staff
+EXTERNAL_ENTITY "Organizer" as org
+EXTERNAL_ENTITY "Admin" as admin
+
+' Main processes
+PROCESS "1.0\nQuản lý\nTài khoản" as acc_mgmt
+PROCESS "2.0\nĐăng ký\nTham gia" as reg_event
+PROCESS "3.0\nQuản lý\nGian hàng" as booth_mgmt
+PROCESS "4.0\nĐánh giá\n- Chấm điểm" as eval_mgmt
+PROCESS "5.0\nQuản lý\nSự kiện" as event_mgmt
+PROCESS "6.0\nCấu hình\nHệ thống" as sys_config
+
+' Data stores
+DATA_STORE "D1 Users" as users
+DATA_STORE "D2 Registrations" as registrations
+DATA_STORE "D3 Booths" as booths
+DATA_STORE "D4 Scores" as scores
+DATA_STORE "D5 Events" as events
+DATA_STORE "D6 Config" as config
+
+' Guest flows
+guest --> acc_mgmt : Đăng ký/Đăng nhập
+acc_mgmt <--> users : Lưu/Xác thực user
+
+' Student flows
+student --> reg_event : Gửi thông tin đăng ký
+reg_event <--> registrations : Ghi trạng thái tham gia
+reg_event --> org : Yêu cầu phê duyệt
+
+' Team flows
+team --> booth_mgmt : Thông tin gian hàng
+booth_mgmt <--> booths : Đọc/Ghi gian hàng
+org --> booth_mgmt : Xét duyệt gian hàng
+
+' Staff flows
+staff --> eval_mgmt : Điểm + nhận xét
+eval_mgmt <--> scores : Lưu kết quả
+eval_mgmt --> team : Gửi phản hồi
+
+' Organizer flows
+org --> event_mgmt : Quản lý lịch trình/Báo cáo
+event_mgmt <--> events : Lưu/Truy vấn sự kiện
+
+' Admin flows
+admin --> sys_config : Quản trị, phân quyền
+sys_config <--> config : Lưu cấu hình hệ thống
+
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/RPHFRpCr4CRl-oc6N01126__z80gr3G90Qcqa2oebI95hkFiMjdrfhQtjDnGXNf0I5ISk3KWX5fH2IHEYH27hVWU-qqOEzlridalqMJz_FoCnpC-K9f8dSOHDBeVTO7cor_di0LD-3XVtO8EyzMT223ALzy2nZzno9SFiVt-9srutXiJDkM2mMU3aqvlE0JA9OrO-RbtwlS6n-sZSU_O_yG_0yce9YAeABfjlpqU-YU37ao89kT4CSzx4tfNcab18c12SysPykfRDVefKxe1H45Weat1KASJnAr4hUDDaSz8R1KQWzVjGQPJUAlFiqKCip1V_fAq-b--NUo9Qvl8YGo8u5ypQKM933ObxKdCXLqc9Z87_fHm0NEPKAOKdlQbderNxxq_4f-dQ2mWoluU2J-xvvX9Wb-ABIWTnq6i7RDbcESVdcz403FBX2I6W1EhbomOiqicAi1stQJFYO0mknU1HSwJH8SravsrIROG8GHOdf5eGYV4zedX-OxdgvlOekoIH3Loj-usn6Q26JAtmZ8skngqPw0ERfzYNh-BS2Ig3MenTQt6D15J7fY2Teace7GYiPgL9cjqNy4NYabbaHIZsl8M35Z0bPP4yqIiPRBofIRVXaDJ7ENgL1Fim92Q9DOfqiryTg5dpglSqMk2FUZOKrc1Ew3jVvX6oLVA2spSR7vOTWDy0Au3MaKey7wUvbwfsJU4hG7AZ_xz8ssTPWjQJBTTC4R571LMnIGPCzTAYFVprHD7DFiBZJGNs0KlzfxJ6SV_bzEW8O8oNouC6MOB_5SqR8Kq80uJoi-onzGyLB-bC0-pHvYarzWAsgHgfhd8KsDe8TUyoFeklw3iSQyYsIyHPKkOhxwdBKomAiSqDdS-pHxqIofLCMPb7v6oV1WRsas6zR4J0--ihqZ05Uxc6ONBgcYUugPWbY__qN1XngWYD3fpyl92vg6TCxpH7xd9fNoTrlcKPt4pXwWRJlFoVqT3qD8CNUimMoH0ySUhwFTBlcmZNwRNS8dJAa2vuJR-zkahl8cD3Ur6rxbhYTRlcYl-MS25AUmtmgi8hMq9sPfGzpv0M7aUFE-0YKaQHzv_)
+
+### Các trạng thái thực thể trong hệ thống
+Trạng thái gian hàng
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trạng thái Gian hàng"
+[*] --> DangKy : Tạo mới gian hàng
+DangKy --> ChoDuyet : Gửi thông tin
+ChoDuyet --> DaDuyet : Ban tổ chức phê duyệt
+ChoDuyet --> TuChoi : Bị từ chối
+DaDuyet --> HoatDong : Bắt đầu lễ hội
+HoatDong --> DaChamDiem : Staff chấm điểm
+DaChamDiem --> KetThuc : Sự kiện kết thúc
+
+state DangKy
+state ChoDuyet
+state DaDuyet
+state TuChoi
+state HoatDong
+state DaChamDiem
+state KetThuc
+
+note right of DangKy : Nhóm học sinh đăng ký
+note right of ChoDuyet : Đang chờ xét duyệt
+note right of DaDuyet : Được phê duyệt
+note right of TuChoi : Bị từ chối
+note right of HoatDong : Gian hàng đang hoạt động
+note right of DaChamDiem : Đã được chấm điểm
+note right of KetThuc : Gian hàng kết thúc
+
+TuChoi --> [*]
+KetThuc --> [*]
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/TPF1Ilj04CRl-nH3Zt_e2_mFKjf0XO8NUnCF8KspIvkDj1kmvo8zY60H3oA2fOXK4HKzPH4FARx7leapPRT90nud-_jcljalsnWhVwJIU0YrfZ1wci9wRlGLg9795Z82nVE5WBRm9V3yNaOrTlJl6EhrFV1y6NKcy1-wI2OG6tqh8Dg2p9uJskA9bqv2XN3Rw1T1NJ-fkP3CdTcUZcjY7sNqDGJSw5K09pn_WbuwCNgcTZNT54j14gFFIVEyqSm5EYYe_SHNNe8pYSjU5QsPFQOmDFeC4ByHp27MIOlxiIV261M7ok_tgMls4AEGxYbc9O84dL1rUHeGRVGx312QIHYOx5lHkbd065wr2kszsS9jiZqhLNOpMpXtjYocsmzsFcComMea8guWwHSf7V3y8wPDBm8O2ybnZ_KKbntaNnL9AQtr9Setrta7f_bARHEe3Ya4Fsz6ByjvLUc_0wjmfSYA_mzjaoMUu4z78M9oCge8ozcXeto9dBMrcs55vo8ipzjDq5gdlF4PC2TmTIEKFNnAx1S0)
+
+Trạng thái tham gia
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trạng thái suất tham gia"
+[*] --> DangKy : Học sinh đăng ký
+
+DangKy --> ChoXacNhan : Gửi yêu cầu
+ChoXacNhan --> DaXacNhan : Ban tổ chức chấp nhận
+ChoXacNhan --> TuChoi : Bị từ chối
+
+DaXacNhan --> SuDung : Tham gia lễ hội
+SuDung --> HoanThanh : Hoàn tất sự kiện
+
+TuChoi --> [*]
+HoanThanh --> [*]
+
+state DangKy
+state ChoXacNhan
+state DaXacNhan
+state TuChoi
+state SuDung
+state HoanThanh
+
+note right of DangKy : Đăng ký mới
+note right of ChoXacNhan : Chờ phê duyệt
+note right of DaXacNhan : Được duyệt
+note right of SuDung : Đang tham gia
+note right of HoanThanh : Kết thúc
+note right of TuChoi : Không được duyệt
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/RPB1IWCn48RlUOgXHw4lu45ABLWeUB47GJmisxe9RREbcnnwBk9118ju414i8cAbeE1fWtZ8udlCcpYnCLiNBxlycMycC_-aaQbeelHe2BMcG3FJKCpHN86QOBwG2IXk5m8oZVcZ8X6D815HZHrj7KEzlWEjI2QTAMn36yr539cGd0eKCyeSs0_6VDoXkpmzZE9z7ad2zz2i14pjKaEC-PDcPTJNBTacVHMQQuWvckUOVjJC62JzLhAQsDLq85mMcdENzlAJDXUkbqtmGBUqJ0Zi-g5WYEOKYBqHp0STrquZIOZaRiZKthjUd1SPcZSOa6LdaZ5_g-F96HPomWaZcrNVs-L5sNc8_jNhgclX-_KYNC2OJ4bFHC8Lf2VbFehBtoN02Csjg72Roo21vWx6t2wXfwSqaQhGfNEkyDShceVuVpJOIXor4bvCXTeqjOFvfoBGvd652hliSFjEnOfvvUf6N_RewR9l)
+
+Trạng thái đánh giá
+
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trạng thái phiếu đánh giá"
+[*] --> KhoiTao : Staff mở phiếu
+
+KhoiTao --> DangDanhGia : Điền tiêu chí
+DangDanhGia --> HoanTat : Nộp đánh giá
+DangDanhGia --> Huy : Bỏ đánh giá
+
+HoanTat --> [*]
+Huy --> [*]
+
+state KhoiTao
+state DangDanhGia
+state HoanTat
+state Huy
+
+note right of KhoiTao : Phiếu được tạo
+note right of DangDanhGia : Đang chấm điểm
+note right of HoanTat : Đã gửi thành công
+note right of Huy : Hủy bỏ
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/PP6nIWGn48RxUOhXIk5Um4AEG_104C7hn2AUjqd0JOurAROK7q35oagNGmJXmC9gKrZay3tcJPpWHjQrMCXildyc_p-JAoSgvyjB74qrXHkFstiA3-WgQXiZqQdOQ5mfJUrdkekDKIXrR4PmkdE6u_4U7YghvyBYBfuuKHHOKdZA2e1ycyXzOIH_wa0BfhTtFF3QeDFnpUD2nGtqWIIOMM7cmZ5yHE5nrP__d_KrSrCAjtymo3qImq-6nEKpi7ktp0wwgjUu-zEro9Ml0OpbKwMbScYBNWJ7lqbzlLDOBz1nZdQ03tFWalrJ-rAoBcsX70YoXmJ7DKeA6vrMyymk5_73o07_ayMCmckDvvm8J9RcWfSCtm00)
+
+Trạng thái tài khoản 
+
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Biểu đồ trạng thái tài khoản"
+[*] --> TaoMoi : Đăng ký
+
+TaoMoi --> HoatDong : Được kích hoạt
+HoatDong --> Khoa : Vi phạm / Bị khóa
+HoatDong --> BiXoa : Người dùng xóa
+
+Khoa --> MoKhoa : Ban tổ chức mở khóa
+MoKhoa --> HoatDong
+
+Khoa --> [*]
+BiXoa --> [*]
+
+state TaoMoi
+state HoatDong
+state Khoa
+state MoKhoa
+state BiXoa
+
+note right of TaoMoi : Tài khoản vừa tạo
+note right of HoatDong : Đang hoạt động
+note right of Khoa : Tạm khóa
+note right of MoKhoa : Được mở khóa lại
+note right of BiXoa : Đã xóa
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/NP8nImCn5CVtV8f7Hw6uEqWv70GvfqC4SGZNUWdj9NAcujxHHH471z7Z9X51SBB1AOVV8z_4b-lZp7NBw_kzV_f-kScLuPLPbWiO9TBRrHBQUsyVm5H-NQi2Z72r1EDU9So5zkj6ZTZPpZcCn_kGSPrg2NlGthKhPEVkXp7wCVGFDJS76Xk1-FtqjicH-SW5XAJQi1u8z97G7CaJ2PS2koNiGkBjBLxhllWGJUHfnnuN8VLPmjHzO-icW2paT5IgAJBX2eotZv0BRzzoABrzeLXYudyR9U2Y3E-AAeQwp8mstnJz89LXcewfZeekY36byLp9GXZG5_yAiyWmN7lxpi6W1JtaXqgvAiXazsXFgjYYQVyiwAI5Xq2lYDudTWCB79F30J8VUDTiV4zcQegV3_i3)
+
+III. Yêu cầu phi chức năng
+1. Hiệu suất
+
+Thời gian tải trang ≤ 3 giây.
+
+Thời gian phản hồi API ≤ 1 giây.
+
+Hỗ trợ đồng thời ít nhất 100 người dùng (phù hợp môi trường trường học).
+
+Tối ưu hóa hình ảnh và tài nguyên tĩnh.
+
+2. Bảo mật
+
+Mã hóa dữ liệu nhạy cảm (thông tin tài khoản, phản hồi).
+
+Bảo vệ chống các tấn công như SQL Injection
+
+Ghi log đầy đủ các hành động quan trọng (đăng nhập, đăng ký gian hàng, chấm điểm).
+
+Backup dữ liệu định kỳ (hằng ngày).
+
+3. Khả năng mở rộng
+
+Kiến trúc module hóa, dễ thêm tính năng mới (ví dụ: mini game, bình chọn).
+
+Khả năng tích hợp với hệ thống trường học (portal sinh viên, LMS).
+
+Dễ dàng nâng cấp phiên bản.
+
+Có tài liệu API & hướng dẫn đầy đủ cho developers.
+
+4. Giao diện người dùng
+
+Thiết kế responsive cho mọi thiết bị (máy tính, tablet, mobile).
+
+Thời gian học sử dụng ≤ 30 phút (phù hợp học sinh & giáo viên).
+
+Giao diện thống nhất & thân thiện, màu sắc trẻ trung.
+
+5. Tương thích
+
+Hoạt động tốt trên trình duyệt phổ biến (Chrome, Firefox, Safari, Edge).
+
+Tương thích iOS & Android khi truy cập từ mobile.
+
+Hỗ trợ trình duyệt phát hành trong 2 năm gần đây.
+
+Tối ưu cho mạng chậm 
+6. Độ tin cậy
+
+Đảm bảo Uptime ≥ 99.9% trong thời gian diễn ra lễ hội.
+
+Thời gian phục hồi sau sự cố < 4 giờ.
+
+Backup dữ liệu tự động hàng ngày.
+
+Có phương án dự phòng (ví dụ: truy cập offline bằng Excel/PDF xuất từ hệ thống).
+
+7. Khả năng bảo trì
+
+Code viết theo chuẩn Clean Code 
+
+Có tài liệu kỹ thuật chi tiết cho từng module.
+
+Hỗ trợ rollback khi deploy thất bại.
+
+IV. Công nghệ
+
+Frontend: ReactJS → xây dựng giao diện người dùng.
+
+Backend: Flask (Python) → phát triển dịch vụ API.	
+
+API: Chuẩn REST API (có thể mở rộng GraphQL sau này).
+
+Cơ sở dữ liệu: MS SQL Server (lưu thông tin tài khoản, gian hàng, món ăn, phản hồi, điểm số).
+
+Bảo mật: Xác thực & phân quyền bằng JWT.
+
+Thông báo: Email (thông báo duyệt gian hàng, kết quả chấm điểm).
+
+Triển khai: Docker 
+
+Quản lý mã nguồn: Git + GitHub
+
+V. Yêu cầu thiết kế
+Mô hình kiến trúc
+
+Hệ thống sử dụng kiến trúc 3 lớp (Three-Tier Architecture):
+
+Client (Frontend)
+
+Xây dựng bằng ReactJS.
+
+Học sinh, giáo viên, ban tổ chức đăng nhập và thao tác qua giao diện web/mobile.
+
+Gửi request đến API, hiển thị kết quả.
+
+Server (Backend - Flash API Python)
+
+Presentation Layer: Tiếp nhận request từ client, xác thực người dùng, gọi service.
+
+Business Logic Layer (Service Layer): Xử lý nghiệp vụ (xét duyệt gian hàng, quản lý suất tham gia, chấm điểm).
+
+Data Access Layer (Repository): Tương tác CSDL, thực hiện CRUD.
+
+Database
+
+MSSQL.
+
+Lưu trữ dữ liệu như:
+
+Tài khoản người dùng (Admin, Ban tổ chức, Giáo viên, Nhóm học sinh, Học sinh).
+
+Gian hàng (thông tin, chi phí, doanh thu).
+
+Phản hồi & đánh giá.
+
+Lịch trình lễ hội.
+
+Kết quả xếp hạng.
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Mô hình kiến trúc"
+
+package "Client" {
+    [ReactJS]
+}
+
+package "Server" {
+    [Controller]
+    [Service]
+    [Repository]
+}
+
+database "Database" {
+    [MS SQL Server]
+}
+
+[ReactJS] <--> [Controller] : REST API
+[Controller] <--> [Service]
+[Service] <--> [Repository]
+[Repository] <--> [MS SQL Server]
+
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/SoWkIImgAStDKL3oFRn58UFmchmCXUpCXxlsvocK51tUbQp4nLMGc9oTc9wgeEISavcQLwAaKCsb00JHGQc9oILUmR5SjKXgWbEBobABu6gSy_DAYl9pSbABOY428FdCvDHOc145-SMP9Vb5bM1JKX9B4fCIYu76k41PS8DyWnM20tqK8CQ35SFjLx3HrRL3iKh1IY78DJX4mJ70amj97AeIuGOO2oA1wXma3aGQmmrS3gbvAS2Wum80)
+
+### Mô hình cơ sở dữ liệu 
+
+Cơ sở dữ liệu – School Food Festival
+
+Cơ sở dữ liệu sẽ bao gồm các bảng sau:
+
+1. Users: Lưu thông tin người dùng của hệ thống, bao gồm tên đăng nhập, email, mật khẩu, vai trò (học sinh, giáo viên, ban tổ chức, quản trị viên...).
+
+2. Students (HocSinh): Lưu thông tin học sinh tham gia lễ hội, bao gồm họ tên, lớp học.
+
+3. Classes (LopHoc): Lưu thông tin các lớp học, là đơn vị để lập gian hàng.
+
+4. Events (SuKien): Lưu thông tin sự kiện lễ hội ẩm thực, bao gồm tên sự kiện, địa điểm tổ chức.
+
+5. Booths (GianHang): Lưu thông tin gian hàng của các lớp, bao gồm tên gian hàng, mô tả, trạng thái duyệt, vị trí trong sự kiện.
+
+6. BoothMembers (ThanhVienGianHang): Quản lý danh sách học sinh thuộc gian hàng, bao gồm vai trò trong nhóm (trưởng nhóm, phục vụ, thu ngân...).
+
+7. Foods (MonAn): Lưu thông tin các món ăn mà gian hàng cung cấp, bao gồm tên món ăn, giá bán.
+
+8. Votes (BinhChon): Lưu thông tin bình chọn món ăn từ người dùng, liên kết giữa người dùng và món ăn.
+
+9. Reviews (DanhGia): Lưu đánh giá của người dùng đối với gian hàng, bao gồm điểm số và bình luận.
+
+10. Transactions (GiaoDich): Ghi nhận các giao dịch tài chính của gian hàng (thu/chi, số tiền).
+
+III. Yêu cầu phi chức năng
+1. Hiệu suất
+
+Thời gian tải trang ≤ 3 giây.
+
+Thời gian phản hồi API ≤ 1 giây.
+
+Hỗ trợ đồng thời ít nhất 100 người dùng (phù hợp môi trường trường học).
+
+Tối ưu hóa hình ảnh và tài nguyên tĩnh.
+
+2. Bảo mật
+
+Mã hóa dữ liệu nhạy cảm (thông tin tài khoản, phản hồi).
+
+Bảo vệ chống các tấn công như SQL Injection
+
+Ghi log đầy đủ các hành động quan trọng (đăng nhập, đăng ký gian hàng, chấm điểm).
+
+Backup dữ liệu định kỳ (hằng ngày).
+
+3. Khả năng mở rộng
+
+Kiến trúc module hóa, dễ thêm tính năng mới (ví dụ: mini game, bình chọn).
+
+Khả năng tích hợp với hệ thống trường học (portal sinh viên, LMS).
+
+Dễ dàng nâng cấp phiên bản.
+
+Có tài liệu API & hướng dẫn đầy đủ cho developers.
+
+4. Giao diện người dùng
+
+Thiết kế responsive cho mọi thiết bị (máy tính, tablet, mobile).
+
+Thời gian học sử dụng ≤ 30 phút (phù hợp học sinh & giáo viên).
+
+Giao diện thống nhất & thân thiện, màu sắc trẻ trung.
+
+5. Tương thích
+
+Hoạt động tốt trên trình duyệt phổ biến (Chrome, Firefox, Safari, Edge).
+
+Tương thích iOS & Android khi truy cập từ mobile.
+
+Hỗ trợ trình duyệt phát hành trong 2 năm gần đây.
+
+Tối ưu cho mạng chậm 
+6. Độ tin cậy
+
+Đảm bảo Uptime ≥ 99.9% trong thời gian diễn ra lễ hội.
+
+Thời gian phục hồi sau sự cố < 4 giờ.
+
+Backup dữ liệu tự động hàng ngày.
+
+Có phương án dự phòng (ví dụ: truy cập offline bằng Excel/PDF xuất từ hệ thống).
+
+7. Khả năng bảo trì
+
+Code viết theo chuẩn Clean Code 
+
+Có tài liệu kỹ thuật chi tiết cho từng module.
+
+Hỗ trợ rollback khi deploy thất bại.
+
+IV. Công nghệ
+
+Frontend: ReactJS → xây dựng giao diện người dùng.
+
+Backend: Flask (Python) → phát triển dịch vụ API.	
+
+API: Chuẩn REST API (có thể mở rộng GraphQL sau này).
+
+Cơ sở dữ liệu: MS SQL Server (lưu thông tin tài khoản, gian hàng, món ăn, phản hồi, điểm số).
+
+Bảo mật: Xác thực & phân quyền bằng JWT.
+
+Thông báo: Email (thông báo duyệt gian hàng, kết quả chấm điểm).
+
+Triển khai: Docker 
+
+Quản lý mã nguồn: Git + GitHub
+
+V. Yêu cầu thiết kế
+Mô hình kiến trúc
+
+Hệ thống sử dụng kiến trúc 3 lớp (Three-Tier Architecture):
+
+Client (Frontend)
+
+Xây dựng bằng ReactJS.
+
+Học sinh, giáo viên, ban tổ chức đăng nhập và thao tác qua giao diện web/mobile.
+
+Gửi request đến API, hiển thị kết quả.
+
+Server (Backend - Flash API Python)
+
+Presentation Layer: Tiếp nhận request từ client, xác thực người dùng, gọi service.
+
+Business Logic Layer (Service Layer): Xử lý nghiệp vụ (xét duyệt gian hàng, quản lý suất tham gia, chấm điểm).
+
+Data Access Layer (Repository): Tương tác CSDL, thực hiện CRUD.
+
+Database
+
+MSSQL.
+
+Lưu trữ dữ liệu như:
+
+Tài khoản người dùng (Admin, Ban tổ chức, Giáo viên, Nhóm học sinh, Học sinh).
+
+Gian hàng (thông tin, chi phí, doanh thu).
+
+Phản hồi & đánh giá.
+
+Lịch trình lễ hội.
+
+Kết quả xếp hạng.
+
+<details>
+  
+<summary>Code PlantUML</summary>
+
+```plantuml
+@startuml "Mô hình kiến trúc"
+
+package "Client" {
+    [ReactJS]
+}
+
+package "Server" {
+    [Controller]
+    [Service]
+    [Repository]
+}
+
+database "Database" {
+    [MS SQL Server]
+}
+
+[ReactJS] <--> [Controller] : REST API
+[Controller] <--> [Service]
+[Service] <--> [Repository]
+[Repository] <--> [MS SQL Server]
+
+@enduml
+```
+</details> 
+
+![Biểu đồ UML](https://www.plantuml.com/plantuml/png/SoWkIImgAStDKL3oFRn58UFmchmCXUpCXxlsvocK51tUbQp4nLMGc9oTc9wgeEISavcQLwAaKCsb00JHGQc9oILUmR5SjKXgWbEBobABu6gSy_DAYl9pSbABOY428FdCvDHOc145-SMP9Vb5bM1JKX9B4fCIYu76k41PS8DyWnM20tqK8CQ35SFjLx3HrRL3iKh1IY78DJX4mJ70amj97AeIuGOO2oA1wXma3aGQmmrS3gbvAS2Wum80)
+
+## Giao diện người dùng
+
+Giao diện người dùng sẽ bao gồm các trang sau:
+
+1. Trang chủ: Hiển thị thông tin về lễ hội ẩm thực, sự kiện đang diễn ra, gian hàng nổi bật và món ăn được yêu thích.
+
+2. Trang gian hàng: Hiển thị danh sách các gian hàng theo lớp, cho phép tìm kiếm, lọc theo tiêu chí (món ăn, giá, vị trí...) và xem chi tiết gian hàng.
+
+3. Trang món ăn: Hiển thị danh sách các món ăn, cho phép người dùng xem chi tiết, giá, và gian hàng cung cấp.
+
+4. Trang bình chọn & đánh giá: Cho phép người dùng bình chọn món ăn, đánh giá gian hàng, và xem kết quả xếp hạng theo thời gian thực.
+
+5. Trang cá nhân: Hiển thị thông tin tài khoản người dùng, cho phép cập nhật thông tin, đổi mật khẩu, xem lịch sử bình chọn/đánh giá.
+
+6. Trang quản lý:
+
+Ban tổ chức: Duyệt gian hàng, theo dõi sự kiện, thống kê kết quả.
+
+Giáo viên/nhân viên: Giám sát, chấm điểm gian hàng.
+
+Quản trị viên: Quản lý người dùng, gian hàng, sự kiện, dữ liệu hệ thống.
+
+
+
+
+
+
+
+
 
 
 
