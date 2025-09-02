@@ -1,11 +1,11 @@
-from repositories.user_repository import UserRepository
+from src.domain.models.iuser_repository import IUserRepository
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class AuthService:
-    def __init__(self):
-        self.user_repo = UserRepository()
+    def __init__(self, user_repo: IUserRepository):
+        self.user_repo = user_repo
 
-    def login(self, user_name, password):
+    def login(self, user_name: str, password: str):
         user = self.user_repo.get_by_username(user_name)
         if user and check_password_hash(user.password, password):
             return user

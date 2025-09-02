@@ -1,9 +1,5 @@
-from sqlalchemy import Column, Integer, String
-from infrastructure.databases.mssql import Base
-
-class UserModel(Base):
-    __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
-    user_name = Column(String(50), unique=True, nullable=False)
-    password = Column(String(255), nullable=False)
-    role = Column(String(20), default='user')  
+class User:
+    def __init__(self, user_name: str, password: str, role: str = 'user'):
+        self.user_name = user_name
+        self.password = password
+        self.role = role

@@ -1,14 +1,15 @@
 from src.domain.models.feedback import Feedback
-
 from sqlalchemy.orm import Session
+from infrastructure.databases.mssql import session
 
 class FeedbackRepository:
-    def __init__(self, session: Session):
+    def __init__(self, session: Session = session):
         self.session = session
 
     def add_feedback(self, feedback: Feedback):
         self.session.add(feedback)
         self.session.commit()
+        self.session.refresh(feedback)
         return feedback
 
     def get_feedback(self, feedback_id: int):
@@ -23,5 +24,9 @@ class FeedbackRepository:
     def delete_feedback(self, feedback_id: int):
         feedback = self.get_feedback(feedback_id)
         if feedback:
-            self.session.delete(feedback)
-            self.session.commit()
+            try:
+                self.session.delete(feedback)
+                self.session.commit()
+            except Exception as e:
+                self.session.rollback()
+                raise e
