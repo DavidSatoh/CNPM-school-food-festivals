@@ -1313,93 +1313,93 @@ note right of BiXoa : Đã xóa
 # III. Yêu cầu phi chức năng
 ## 1. Hiệu suất
 
-Thời gian tải trang ≤ 3 giây.
+* Thời gian tải trang ≤ 3 giây.
 
-Thời gian phản hồi API ≤ 1 giây.
+* Thời gian phản hồi API ≤ 1 giây.
 
-Hỗ trợ đồng thời ít nhất 100 người dùng (phù hợp môi trường trường học).
+* Hỗ trợ đồng thời ít nhất 100 người dùng (phù hợp môi trường trường học).
 
-Tối ưu hóa hình ảnh và tài nguyên tĩnh.
+* Tối ưu hóa hình ảnh và tài nguyên tĩnh.
 
 ## 2. Bảo mật
 
-Mã hóa dữ liệu nhạy cảm (thông tin tài khoản, phản hồi).
+* Mã hóa dữ liệu nhạy cảm (thông tin tài khoản, phản hồi).
 
-Bảo vệ chống các tấn công như SQL Injection
+* Bảo vệ chống các tấn công như SQL Injection
 
-Ghi log đầy đủ các hành động quan trọng (đăng nhập, đăng ký gian hàng, chấm điểm).
+* Ghi log đầy đủ các hành động quan trọng (đăng nhập, đăng ký gian hàng, chấm điểm).
 
-Backup dữ liệu định kỳ (hằng ngày).
+* Backup dữ liệu định kỳ (hằng ngày).
 
 ## 3. Khả năng mở rộng
 
-Kiến trúc module hóa, dễ thêm tính năng mới (ví dụ: mini game, bình chọn).
+* Kiến trúc module hóa, dễ thêm tính năng mới (ví dụ: mini game, bình chọn).
 
-Khả năng tích hợp với hệ thống trường học (portal sinh viên, LMS).
+* Khả năng tích hợp với hệ thống trường học (portal sinh viên, LMS).
 
-Dễ dàng nâng cấp phiên bản.
+* Dễ dàng nâng cấp phiên bản.
 
-Có tài liệu API & hướng dẫn đầy đủ cho developers.
+* Có tài liệu API & hướng dẫn đầy đủ cho developers.
 
 ## 4. Giao diện người dùng
 
-Thiết kế responsive cho mọi thiết bị (máy tính, tablet, mobile).
+* Thiết kế responsive cho mọi thiết bị (máy tính, tablet, mobile).
 
-Thời gian học sử dụng ≤ 30 phút (phù hợp học sinh & giáo viên).
+* Thời gian học sử dụng ≤ 30 phút (phù hợp học sinh & giáo viên).
 
-Giao diện thống nhất & thân thiện, màu sắc trẻ trung.
+* Giao diện thống nhất & thân thiện, màu sắc trẻ trung.
 
 ## 5. Tương thích
 
-Hoạt động tốt trên trình duyệt phổ biến (Chrome, Firefox, Safari, Edge).
+* Hoạt động tốt trên trình duyệt phổ biến (Chrome, Firefox, Safari, Edge).
 
-Tương thích iOS & Android khi truy cập từ mobile.
+* Tương thích iOS & Android khi truy cập từ mobile.
 
-Hỗ trợ trình duyệt phát hành trong 2 năm gần đây.
+* Hỗ trợ trình duyệt phát hành trong 2 năm gần đây.
 
-Tối ưu cho mạng chậm 
+* Tối ưu cho mạng chậm 
 ## 6. Độ tin cậy
 
-Đảm bảo Uptime ≥ 99.9% trong thời gian diễn ra lễ hội.
+* Đảm bảo Uptime ≥ 99.9% trong thời gian diễn ra lễ hội.
 
-Thời gian phục hồi sau sự cố < 4 giờ.
+* Thời gian phục hồi sau sự cố < 4 giờ.
 
-Backup dữ liệu tự động hàng ngày.
+* Backup dữ liệu tự động hàng ngày.
 
-Có phương án dự phòng (ví dụ: truy cập offline bằng Excel/PDF xuất từ hệ thống).
+* Có phương án dự phòng (ví dụ: truy cập offline bằng Excel/PDF xuất từ hệ thống).
 
 ## 7. Khả năng bảo trì
 
-Code viết theo chuẩn Clean Code 
+* Code viết theo chuẩn Clean Code 
 
-Có tài liệu kỹ thuật chi tiết cho từng module.
+* Có tài liệu kỹ thuật chi tiết cho từng module.
 
-Hỗ trợ rollback khi deploy thất bại.
+* Hỗ trợ rollback khi deploy thất bại.
 
 # IV. Công nghệ
 
-Frontend: ReactJS → xây dựng giao diện người dùng.
+* Frontend: ReactJS → xây dựng giao diện người dùng.
 
-Backend: Flask (Python) → phát triển dịch vụ API.	
+* Backend: Flask (Python) → phát triển dịch vụ API.	
 
-API: Chuẩn REST API (có thể mở rộng GraphQL sau này).
+* API: Chuẩn REST API (có thể mở rộng GraphQL sau này).
 
-Cơ sở dữ liệu: MS SQL Server (lưu thông tin tài khoản, gian hàng, món ăn, phản hồi, điểm số).
+* Cơ sở dữ liệu: MS SQL Server (lưu thông tin tài khoản, gian hàng, món ăn, phản hồi, điểm số).
 
-Bảo mật: Xác thực & phân quyền bằng JWT.
+* Bảo mật: Xác thực & phân quyền bằng JWT.
 
-Thông báo: Email (thông báo duyệt gian hàng, kết quả chấm điểm).
+* Thông báo: Email (thông báo duyệt gian hàng, kết quả chấm điểm).
 
-Triển khai: Docker 
+* Triển khai: Docker 
 
-Quản lý mã nguồn: Git + GitHub
+* Quản lý mã nguồn: Git + GitHub
 
 # V. Yêu cầu thiết kế
 Mô hình kiến trúc
 
 Hệ thống sử dụng kiến trúc 3 lớp (Three-Tier Architecture):
 
-Client (Frontend)
+* Client (Frontend)
 
 Xây dựng bằng ReactJS.
 
@@ -1407,7 +1407,7 @@ Học sinh, giáo viên, ban tổ chức đăng nhập và thao tác qua giao di
 
 Gửi request đến API, hiển thị kết quả.
 
-Server (Backend - Flash API Python)
+* Server (Backend - Flash API Python)
 
 Presentation Layer: Tiếp nhận request từ client, xác thực người dùng, gọi service.
 
@@ -1415,7 +1415,7 @@ Business Logic Layer (Service Layer): Xử lý nghiệp vụ (xét duyệt gian 
 
 Data Access Layer (Repository): Tương tác CSDL, thực hiện CRUD.
 
-Database
+* Database
 
 MSSQL.
 
@@ -1469,25 +1469,25 @@ Cơ sở dữ liệu – School Food Festival
 
 Cơ sở dữ liệu sẽ bao gồm các bảng sau:
 
-1. Users: Lưu thông tin người dùng của hệ thống, bao gồm tên đăng nhập, email, mật khẩu, vai trò (học sinh, giáo viên, ban tổ chức, quản trị viên...).
+1. **Users**: Lưu thông tin người dùng của hệ thống, bao gồm tên đăng nhập, email, mật khẩu, vai trò (học sinh, giáo viên, ban tổ chức, quản trị viên...).
 
-2. Students (HocSinh): Lưu thông tin học sinh tham gia lễ hội, bao gồm họ tên, lớp học.
+2. **Students (HocSinh)**: Lưu thông tin học sinh tham gia lễ hội, bao gồm họ tên, lớp học.
 
-3. Classes (LopHoc): Lưu thông tin các lớp học, là đơn vị để lập gian hàng.
+3. **Classes (LopHoc)**: Lưu thông tin các lớp học, là đơn vị để lập gian hàng.
 
-4. Events (SuKien): Lưu thông tin sự kiện lễ hội ẩm thực, bao gồm tên sự kiện, địa điểm tổ chức.
+4. **Events (SuKien)**: Lưu thông tin sự kiện lễ hội ẩm thực, bao gồm tên sự kiện, địa điểm tổ chức.
 
-5. Booths (GianHang): Lưu thông tin gian hàng của các lớp, bao gồm tên gian hàng, mô tả, trạng thái duyệt, vị trí trong sự kiện.
+5. **Booths (GianHang)**: Lưu thông tin gian hàng của các lớp, bao gồm tên gian hàng, mô tả, trạng thái duyệt, vị trí trong sự kiện.
 
-6. BoothMembers (ThanhVienGianHang): Quản lý danh sách học sinh thuộc gian hàng, bao gồm vai trò trong nhóm (trưởng nhóm, phục vụ, thu ngân...).
+6. **BoothMembers (ThanhVienGianHang)**: Quản lý danh sách học sinh thuộc gian hàng, bao gồm vai trò trong nhóm (trưởng nhóm, phục vụ, thu ngân...).
 
-7. Foods (MonAn): Lưu thông tin các món ăn mà gian hàng cung cấp, bao gồm tên món ăn, giá bán.
+7. **Foods (MonAn)**: Lưu thông tin các món ăn mà gian hàng cung cấp, bao gồm tên món ăn, giá bán.
 
-8. Votes (BinhChon): Lưu thông tin bình chọn món ăn từ người dùng, liên kết giữa người dùng và món ăn.
+8. **Votes (BinhChon)**: Lưu thông tin bình chọn món ăn từ người dùng, liên kết giữa người dùng và món ăn.
 
-9. Reviews (DanhGia): Lưu đánh giá của người dùng đối với gian hàng, bao gồm điểm số và bình luận.
+9. **Reviews (DanhGia)**: Lưu đánh giá của người dùng đối với gian hàng, bao gồm điểm số và bình luận.
 
-10. Transactions (GiaoDich): Ghi nhận các giao dịch tài chính của gian hàng (thu/chi, số tiền).
+10. **Transactions (GiaoDich)**: Ghi nhận các giao dịch tài chính của gian hàng (thu/chi, số tiền).
 
 
 <details>
@@ -1601,11 +1601,11 @@ Giao diện người dùng sẽ bao gồm các trang sau:
 
 6. Trang quản lý:
 
-Ban tổ chức: Duyệt gian hàng, theo dõi sự kiện, thống kê kết quả.
+* Ban tổ chức: Duyệt gian hàng, theo dõi sự kiện, thống kê kết quả.
 
-Giáo viên/nhân viên: Giám sát, chấm điểm gian hàng.
+* Giáo viên/nhân viên: Giám sát, chấm điểm gian hàng.
 
-Quản trị viên: Quản lý người dùng, gian hàng, sự kiện, dữ liệu hệ thống.
+* Quản trị viên: Quản lý người dùng, gian hàng, sự kiện, dữ liệu hệ thống.
 
 
 
