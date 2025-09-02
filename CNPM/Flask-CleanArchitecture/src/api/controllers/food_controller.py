@@ -1,14 +1,16 @@
 from flask import Blueprint, request, jsonify
 from services.food_service import FoodService
 from infrastructure.repositories.food_repository import FoodRepository
-from api.schemas.food import FoodRequestSchema, FoodResponseSchema
+from api.schemas.food import FoodRequestSchema, FoodResponseSchema, FoodCreateSchema, FoodUpdateSchema
 from infrastructure.databases.mssql import session
-
+from domain.models.food import Food
 bp = Blueprint('food', __name__, url_prefix='/foods')
 
 food_service = FoodService(FoodRepository(session))
 request_schema = FoodRequestSchema()
 response_schema = FoodResponseSchema()
+create_schema = FoodCreateSchema()
+update_schema = FoodUpdateSchema()
 
 @bp.route('/', methods=['GET'])
 def list_foods():
@@ -68,7 +70,7 @@ def create_food():
                 required: true
                 content:
                     application/json:
-                        schema: FoodRequestSchema
+                        schema: FoodCreateSchema
             responses:
                 201:
                     description: Food created
@@ -79,15 +81,15 @@ def create_food():
                     description: Validation error
         '''
         data = request.get_json()
-        errors = request_schema.validate(data)
+        errors = create_schema.validate(data)
         if errors:
                 return jsonify(errors), 400
         food = food_service.create_food(
-                name=data['name'],
-                description=data['description'],
-                price=data['price'],
-                category=data['category'],
-                event_id=data['event_id']
+                Food(
+                        name=data['name'],
+                        gian_hang_id=data['gian_hang_id'],
+                        price=data['price']
+                )
         )
         return jsonify(response_schema.dump(food)), 201
 
@@ -109,7 +111,7 @@ def update_food(food_id):
                 required: true
                 content:
                     application/json:
-                        schema: FoodRequestSchema
+                        schema: FoodUpdateSchema
             responses:
                 200:
                     description: Food updated
@@ -122,16 +124,15 @@ def update_food(food_id):
                     description: Food not found
         '''
         data = request.get_json()
-        errors = request_schema.validate(data)
+        errors = update_schema.validate(data)
         if errors:
                 return jsonify(errors), 400
         food = food_service.update_food(
                 food_id=food_id,
-                name=data['name'],
-                description=data['description'],
-                price=data['price'],
-                category=data['category'],
-                event_id=data['event_id']
+                food_data=Food(
+                        name=data['name'],
+                        price=data['price']
+                )
         )
         if not food:
                 return jsonify({'message': 'Food not found'}), 404

@@ -2,7 +2,7 @@ from domain.models.food import Food
 from infrastructure.models.food_model import FoodModel
 from sqlalchemy.orm import Session
 from infrastructure.databases.mssql import session
-from src.domain.models.ifood_repository import IFoodRepository
+from domain.models.ifood_repository import IFoodRepository
 from typing import List, Optional
 
 class FoodRepository(IFoodRepository):

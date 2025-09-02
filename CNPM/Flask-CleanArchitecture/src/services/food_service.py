@@ -1,5 +1,5 @@
-from src.domain.models.ifood_repository import IFoodRepository
-from src.domain.models.food import Food
+from domain.models.ifood_repository import IFoodRepository
+from domain.models.food import Food
 
 
 class FoodService:
