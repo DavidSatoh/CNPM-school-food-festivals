@@ -86,6 +86,7 @@ def create_food():
                 return jsonify(errors), 400
         food = food_service.create_food(
                 Food(
+                        id = 0,
                         name=data['name'],
                         gian_hang_id=data['gian_hang_id'],
                         price=data['price']

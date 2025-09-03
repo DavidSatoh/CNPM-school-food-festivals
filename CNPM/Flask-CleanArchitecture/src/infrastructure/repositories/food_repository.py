@@ -15,12 +15,12 @@ class FoodRepository(IFoodRepository):
     def get_by_id(self, food_id: int) -> Optional[FoodModel]:
         return self.session.query(FoodModel).filter(FoodModel.id == food_id).first()
 
-    def create(self, booth_id: int, food_data: Food) -> FoodModel:
+    def create(self, food_data: Food) -> FoodModel:
         food = FoodModel(
             id=None, 
             name=food_data.name,
             price=food_data.price,
-            booth_id=booth_id
+            gianHanId=food_data.gian_hang_id
         )
         self.session.add(food)
         self.session.commit()

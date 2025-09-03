@@ -1,5 +1,4 @@
 class Classes:
-    def __init__(self, id: int, name: str, description: str):
+    def __init__(self, id: int, name: str):
         self.id = id
         self.name = name
-        self.description = description

@@ -1,23 +1,22 @@
 from typing import List, Optional
 from domain.models.classes import Classes
-from infrastructure.models.class_model import ClassModel
 from abc import ABC, abstractmethod
 
 class IClassRepository(ABC):
     @abstractmethod
-    def get_all(self) -> List[ClassModel]:
+    def get_all(self) -> List[Classes]:
         raise NotImplementedError
 
     @abstractmethod
-    def get_by_id(self, class_id: int) -> Optional[ClassModel]:
+    def get_by_id(self, class_id: int) -> Optional[Classes]:
         raise NotImplementedError
 
     @abstractmethod
-    def create(self, class_data: Classes) -> ClassModel:
+    def create(self, class_data: Classes) -> Classes:
         raise NotImplementedError
 
     @abstractmethod
-    def update(self, class_id: int, class_data: Classes) -> Optional[ClassModel]:
+    def update(self, class_id: int, class_data: Classes) -> Optional[Classes]:
         raise NotImplementedError
 
     @abstractmethod

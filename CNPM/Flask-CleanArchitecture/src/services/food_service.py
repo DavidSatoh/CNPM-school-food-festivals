@@ -13,7 +13,7 @@ class FoodService:
         return self.food_repository.get_by_id(food_id)
 
     def create_food(self, food_data: Food):
-        return self.food_repository.create(food_data)
+        return self.food_repository.create(food_data=food_data)
 
     def update_food(self, food_id: int, food_data: Food):
         return self.food_repository.update(food_id, food_data)

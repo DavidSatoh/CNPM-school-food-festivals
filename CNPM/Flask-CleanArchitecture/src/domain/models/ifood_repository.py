@@ -15,7 +15,7 @@ class IFoodRepository(ABC):
         pass
 
     @abstractmethod
-    def create(self, booth_id: int, food_data: Food) -> Food:
+    def create(self, food_data: Food) -> Food:
         pass
 
     @abstractmethod

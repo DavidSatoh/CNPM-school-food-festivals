@@ -20,7 +20,6 @@ class ClassRepository(IClassRepository):
         class_ = ClassModel(
             id=None,
             name=class_data.name,
-            description=class_data.description
         )
         self.session.add(class_)
         self.session.commit()
@@ -32,7 +31,6 @@ class ClassRepository(IClassRepository):
         if not class_:
             return None
         class_.name = class_data.name
-        class_.description = class_data.description
         try:
             self.session.merge(class_)
         except Exception as e:
