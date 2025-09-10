@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 from api.swagger import spec
 from api.controllers.todo_controller import bp as todo_bp
+from api.controllers.food_controller import bp as food_bp
+from api.controllers.class_controller import class_controller
 from api.middleware import middleware
 from api.responses import success_response
 from infrastructure.databases import init_db
@@ -15,8 +17,10 @@ def create_app():
     Swagger(app)
     # Đăng ký blueprint trước
     app.register_blueprint(todo_bp)
+    app.register_blueprint(food_bp)
+    app.register_blueprint(class_controller)
 
-     # Thêm Swagger UI blueprint
+    # Thêm Swagger UI blueprint
     SWAGGER_URL = '/docs'
     API_URL = '/swagger.json'
     swaggerui_blueprint = get_swaggerui_blueprint(
@@ -38,7 +42,7 @@ def create_app():
     with app.test_request_context():
         for rule in app.url_map.iter_rules():
             # Thêm các endpoint khác nếu cần
-            if rule.endpoint.startswith(('todo.', 'course.', 'user.')):
+            # if rule.endpoint.startswith(('todo.', 'course.', 'user.', 'food.')):
                 view_func = app.view_functions[rule.endpoint]
                 print(f"Adding path: {rule.rule} -> {view_func}")
                 spec.path(view=view_func)

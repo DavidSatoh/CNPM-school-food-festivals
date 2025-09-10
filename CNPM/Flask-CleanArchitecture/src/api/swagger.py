@@ -2,6 +2,7 @@ from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
 from api.schemas.todo import TodoRequestSchema, TodoResponseSchema
+from api.schemas.food import FoodRequestSchema, FoodResponseSchema
 
 spec = APISpec(
     title="Todo API",
@@ -13,3 +14,5 @@ spec = APISpec(
 # Đăng ký schema để tự động sinh model
 spec.components.schema("TodoRequest", schema=TodoRequestSchema)
 spec.components.schema("TodoResponse", schema=TodoResponseSchema)
+spec.components.schema("FoodRequest", schema=FoodRequestSchema)
+spec.components.schema("FoodResponse", schema=FoodResponseSchema)

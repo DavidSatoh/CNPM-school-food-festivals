@@ -1,13 +1,16 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from infrastructure.databases.base import Base
+from infrastructure.models.user_model import UserModel
+from infrastructure.models.consultant_model import ConsultantModel
+
 
 class AppointmentModel(Base):
     __tablename__ = 'appointments'
     __table_args__ = {'extend_existing': True}  # Thêm dòng này
 
     id = Column(Integer, primary_key=True)
-    consultant_id = Column(Integer, ForeignKey('consultants.id'))
-    user_id = Column(Integer,  ForeignKey('flask_user.id'))
+    consultant_id = Column(Integer, ForeignKey(ConsultantModel.__tablename__ + '.id'), nullable=False)
+    user_id = Column(Integer,  ForeignKey(UserModel.__tablename__ + '.id'), nullable=False)
     description = Column(String(255), nullable=True)
     status = Column(String(50), nullable=False)
     start_time = Column(DateTime, nullable=False)
