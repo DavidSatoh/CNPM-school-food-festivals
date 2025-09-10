@@ -284,6 +284,7 @@ Guest -- Register
 </details> 
 
 ![Biểu đồ UML](https://kroki.io/plantuml/svg/eNp9kr1OwzAUhXc_xVX2vkOVij-pYiAUsVrOxbGS2JXtFCHEVCEGFiomNhYGJNiYaiGG9EX8JnXSEhEE9WDJx-fzPdf20FiqbVUWEMXCu3kFq4V3jzAxCCMaJpZ598pAruaSw0GFxkaEmFzIKdW0hMoga2zXBMKIKcu5VpVMR6pQGuJJcnS8lyTk5icjlf0PGAue2SS_iosKG6jACwtWgW50SIVGZoWShFBmg73NQ0ijUskLhOjQuzuwIfNC8mhb5DtjdI5l2Ks_QidWSEi9u2cZzLx7iYAaOBN4maCeCYY7OS6ohKx-bipssVgpm-2ECu9uIeR6Eh20H8KLGS363Gn9VkIu_PKrbJ0JUs1-nb16aJ9DZn75Pm1dY8WF_NOU15-t4wS5MBZ1c63tvcFg0Gu5J24a6kld3E7dRuvWmxDdsqtIhijT8MfWtkrgkw==)
+
 #Chức năng Student
 <details>
   
