@@ -1571,7 +1571,7 @@ GianHang ||--o{ GiaoDich
 
 ![Biểu đồ UML](https://kroki.io/plantuml/svg/eNqVVNuKwjAQfc9XBB8X_IFFxHVr18ULy7b4PmhpBmpGNF0Q3X_fsUlj1lRQ6EPnZHLmzC2jg4G9qbeV7E2-E9mX2VoRVTIl2si0OBj8gaonRKENmqNcljVhUutSnoSUL978TOSrRG3kYPA1Gw75LC90ArpcKtjx0cHsUZcML8DMFNQhNNkCViGwAsz3dEV-ffgprTPUygZ3Rhx6Tjs-C_DU4lNiUV209oJljS5f83FuHQRZPUOmbgjsfyeBcwtSTRASLLZdnB8IegptpVvr8WwjHanX4anDxlAOoZ3v2SFXwO09FuZfe7g72KWYvbVaYcDfSPdwrD1uoRPZka47scPB32W2qLNyC9JvrhnNbxz3Pj1Xx14PEmbvMVyQTbHGLVRBqDGrf1fkorVWHLBrUVzEW4kNfI3AS6RYgA3gjKf47-d6mbyMLMrmRf28Bn1nGCnBtfLD2FjPFHZOgJ4lKG5Gud2JoLhuT87nfp9OnlO4_XOwm50b1Du3T4XDo9kUfkgf9mg6Ja5PoIPbrgs7OLdo5O-aGNHfw9uqCTEq9Iaf6j_CucTi)
 
-# Giao diện người dùng 
+# Giao diện người dùng.
 
 Giao diện người dùng sẽ bao gồm các trang sau:
 
